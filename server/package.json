@@ -1,0 +1,17 @@
+{
+  "name": "pawsitiv-server",
+  "version": "1.0.0",
+  "description": "A cat app in Express, we like cats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cat"
+  ],
+  "author": "UwU",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^5.1.0"
+  }
+}
