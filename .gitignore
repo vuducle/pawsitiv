@@ -1,0 +1,6 @@
+./server/node_modules
+/node_modules
+# No node modules pls UwU
+server/node_modules
+
+server/.env
