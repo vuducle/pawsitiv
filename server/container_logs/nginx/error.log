@@ -945,3 +945,141 @@
 2025/04/17 10:25:42 [notice] 1#1: start worker process 46
 2025/04/17 10:25:42 [notice] 1#1: start worker process 47
 2025/04/17 10:25:42 [notice] 1#1: start worker process 48
+2025/04/17 11:17:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 11:17:48 [notice] 38#38: gracefully shutting down
+2025/04/17 11:17:48 [notice] 47#47: gracefully shutting down
+2025/04/17 11:17:48 [notice] 39#39: gracefully shutting down
+2025/04/17 11:17:48 [notice] 42#42: gracefully shutting down
+2025/04/17 11:17:48 [notice] 39#39: exiting
+2025/04/17 11:17:48 [notice] 40#40: gracefully shutting down
+2025/04/17 11:17:48 [notice] 41#41: gracefully shutting down
+2025/04/17 11:17:48 [notice] 45#45: gracefully shutting down
+2025/04/17 11:17:48 [notice] 44#44: gracefully shutting down
+2025/04/17 11:17:48 [notice] 46#46: gracefully shutting down
+2025/04/17 11:17:48 [notice] 43#43: gracefully shutting down
+2025/04/17 11:17:48 [notice] 48#48: gracefully shutting down
+2025/04/17 11:17:48 [notice] 38#38: exiting
+2025/04/17 11:17:48 [notice] 47#47: exiting
+2025/04/17 11:17:48 [notice] 42#42: exiting
+2025/04/17 11:17:48 [notice] 39#39: exit
+2025/04/17 11:17:48 [notice] 41#41: exiting
+2025/04/17 11:17:48 [notice] 45#45: exiting
+2025/04/17 11:17:48 [notice] 47#47: exit
+2025/04/17 11:17:48 [notice] 40#40: exiting
+2025/04/17 11:17:48 [notice] 44#44: exiting
+2025/04/17 11:17:48 [notice] 46#46: exiting
+2025/04/17 11:17:48 [notice] 43#43: exiting
+2025/04/17 11:17:48 [notice] 46#46: exit
+2025/04/17 11:17:48 [notice] 48#48: exiting
+2025/04/17 11:17:48 [notice] 38#38: exit
+2025/04/17 11:17:48 [notice] 42#42: exit
+2025/04/17 11:17:48 [notice] 41#41: exit
+2025/04/17 11:17:48 [notice] 45#45: exit
+2025/04/17 11:17:48 [notice] 40#40: exit
+2025/04/17 11:17:48 [notice] 44#44: exit
+2025/04/17 11:17:48 [notice] 43#43: exit
+2025/04/17 11:17:48 [notice] 48#48: exit
+2025/04/17 11:17:48 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 11:17:48 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 11:17:48 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2025/04/17 11:17:48 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 11:17:48 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 11:17:48 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 11:17:48 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 11:17:48 [notice] 1#1: exit
+2025/04/17 11:17:49 [notice] 1#1: using the "epoll" event method
+2025/04/17 11:17:49 [notice] 1#1: nginx/1.27.5
+2025/04/17 11:17:49 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 11:17:49 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 11:17:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 11:17:49 [notice] 1#1: start worker processes
+2025/04/17 11:17:49 [notice] 1#1: start worker process 38
+2025/04/17 11:17:49 [notice] 1#1: start worker process 39
+2025/04/17 11:17:49 [notice] 1#1: start worker process 40
+2025/04/17 11:17:49 [notice] 1#1: start worker process 41
+2025/04/17 11:17:49 [notice] 1#1: start worker process 42
+2025/04/17 11:17:49 [notice] 1#1: start worker process 43
+2025/04/17 11:17:49 [notice] 1#1: start worker process 44
+2025/04/17 11:17:49 [notice] 1#1: start worker process 45
+2025/04/17 11:17:49 [notice] 1#1: start worker process 46
+2025/04/17 11:17:49 [notice] 1#1: start worker process 47
+2025/04/17 11:17:49 [notice] 1#1: start worker process 48
+2025/04/17 11:18:42 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 11:18:42 [notice] 38#38: gracefully shutting down
+2025/04/17 11:18:42 [notice] 39#39: gracefully shutting down
+2025/04/17 11:18:42 [notice] 40#40: gracefully shutting down
+2025/04/17 11:18:42 [notice] 46#46: gracefully shutting down
+2025/04/17 11:18:42 [notice] 41#41: gracefully shutting down
+2025/04/17 11:18:42 [notice] 48#48: gracefully shutting down
+2025/04/17 11:18:42 [notice] 42#42: gracefully shutting down
+2025/04/17 11:18:42 [notice] 41#41: exiting
+2025/04/17 11:18:42 [notice] 47#47: gracefully shutting down
+2025/04/17 11:18:42 [notice] 43#43: gracefully shutting down
+2025/04/17 11:18:42 [notice] 47#47: exiting
+2025/04/17 11:18:42 [notice] 45#45: gracefully shutting down
+2025/04/17 11:18:42 [notice] 44#44: gracefully shutting down
+2025/04/17 11:18:42 [notice] 38#38: exiting
+2025/04/17 11:18:42 [notice] 39#39: exiting
+2025/04/17 11:18:42 [notice] 40#40: exiting
+2025/04/17 11:18:42 [notice] 39#39: exit
+2025/04/17 11:18:42 [notice] 46#46: exiting
+2025/04/17 11:18:42 [notice] 48#48: exiting
+2025/04/17 11:18:42 [notice] 46#46: exit
+2025/04/17 11:18:42 [notice] 42#42: exiting
+2025/04/17 11:18:42 [notice] 41#41: exit
+2025/04/17 11:18:42 [notice] 43#43: exiting
+2025/04/17 11:18:42 [notice] 47#47: exit
+2025/04/17 11:18:42 [notice] 43#43: exit
+2025/04/17 11:18:42 [notice] 45#45: exiting
+2025/04/17 11:18:42 [notice] 38#38: exit
+2025/04/17 11:18:42 [notice] 44#44: exiting
+2025/04/17 11:18:42 [notice] 40#40: exit
+2025/04/17 11:18:42 [notice] 44#44: exit
+2025/04/17 11:18:42 [notice] 48#48: exit
+2025/04/17 11:18:42 [notice] 42#42: exit
+2025/04/17 11:18:42 [notice] 45#45: exit
+2025/04/17 11:18:42 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+2025/04/17 11:18:42 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 11:18:42 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2025/04/17 11:18:42 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 11:18:42 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2025/04/17 11:18:42 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+2025/04/17 11:18:42 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 11:18:42 [notice] 1#1: exit
+2025/04/17 11:18:44 [notice] 1#1: using the "epoll" event method
+2025/04/17 11:18:44 [notice] 1#1: nginx/1.27.5
+2025/04/17 11:18:44 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 11:18:44 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 11:18:44 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 11:18:44 [notice] 1#1: start worker processes
+2025/04/17 11:18:44 [notice] 1#1: start worker process 38
+2025/04/17 11:18:44 [notice] 1#1: start worker process 39
+2025/04/17 11:18:44 [notice] 1#1: start worker process 40
+2025/04/17 11:18:44 [notice] 1#1: start worker process 41
+2025/04/17 11:18:44 [notice] 1#1: start worker process 42
+2025/04/17 11:18:44 [notice] 1#1: start worker process 43
+2025/04/17 11:18:44 [notice] 1#1: start worker process 44
+2025/04/17 11:18:44 [notice] 1#1: start worker process 45
+2025/04/17 11:18:44 [notice] 1#1: start worker process 46
+2025/04/17 11:18:44 [notice] 1#1: start worker process 47
+2025/04/17 11:18:44 [notice] 1#1: start worker process 48
