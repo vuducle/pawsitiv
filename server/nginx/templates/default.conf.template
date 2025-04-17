@@ -19,6 +19,9 @@ server {
                 proxy_set_header  X-Forwarded-Host $host;
         }
 
-        # root /var/www/html;
-        # index index.html;
+        location /doc {
+            alias /usr/share/nginx/frontend;
+            try_files $uri $uri/ =404;
+            index index.html;
+        }
 }

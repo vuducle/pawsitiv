@@ -7,7 +7,7 @@ services:
       - ./nginx/templates:/etc/nginx/templates
       - ./container_logs/nginx:/var/log/nginx
       - ./secrets/nginx:/etc/ssl
-      - ./public_html:/usr/share/nginx/public_html  # Add this line
+      - ../frontend:/usr/share/nginx/frontend
     ports:
       - "80:80"
     environment:
