@@ -1,0 +1,947 @@
+2025/04/17 09:01:58 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:01:58 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:01:58 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:01:58 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:01:58 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:01:58 [notice] 1#1: start worker processes
+2025/04/17 09:01:58 [notice] 1#1: start worker process 32
+2025/04/17 09:01:58 [notice] 1#1: start worker process 33
+2025/04/17 09:01:58 [notice] 1#1: start worker process 34
+2025/04/17 09:01:58 [notice] 1#1: start worker process 35
+2025/04/17 09:01:58 [notice] 1#1: start worker process 36
+2025/04/17 09:01:58 [notice] 1#1: start worker process 37
+2025/04/17 09:01:58 [notice] 1#1: start worker process 38
+2025/04/17 09:01:58 [notice] 1#1: start worker process 39
+2025/04/17 09:01:58 [notice] 1#1: start worker process 40
+2025/04/17 09:01:58 [notice] 1#1: start worker process 41
+2025/04/17 09:01:58 [notice] 1#1: start worker process 42
+2025/04/17 09:02:06 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:02:06 [notice] 32#32: gracefully shutting down
+2025/04/17 09:02:06 [notice] 36#36: gracefully shutting down
+2025/04/17 09:02:06 [notice] 33#33: gracefully shutting down
+2025/04/17 09:02:06 [notice] 32#32: exiting
+2025/04/17 09:02:06 [notice] 38#38: gracefully shutting down
+2025/04/17 09:02:06 [notice] 34#34: gracefully shutting down
+2025/04/17 09:02:06 [notice] 39#39: gracefully shutting down
+2025/04/17 09:02:06 [notice] 34#34: exiting
+2025/04/17 09:02:06 [notice] 42#42: gracefully shutting down
+2025/04/17 09:02:06 [notice] 35#35: gracefully shutting down
+2025/04/17 09:02:06 [notice] 41#41: gracefully shutting down
+2025/04/17 09:02:06 [notice] 37#37: gracefully shutting down
+2025/04/17 09:02:06 [notice] 40#40: gracefully shutting down
+2025/04/17 09:02:06 [notice] 41#41: exiting
+2025/04/17 09:02:06 [notice] 33#33: exiting
+2025/04/17 09:02:06 [notice] 36#36: exiting
+2025/04/17 09:02:06 [notice] 32#32: exit
+2025/04/17 09:02:06 [notice] 38#38: exiting
+2025/04/17 09:02:06 [notice] 39#39: exiting
+2025/04/17 09:02:06 [notice] 34#34: exit
+2025/04/17 09:02:06 [notice] 39#39: exit
+2025/04/17 09:02:06 [notice] 42#42: exiting
+2025/04/17 09:02:06 [notice] 35#35: exiting
+2025/04/17 09:02:06 [notice] 37#37: exiting
+2025/04/17 09:02:06 [notice] 40#40: exiting
+2025/04/17 09:02:06 [notice] 41#41: exit
+2025/04/17 09:02:06 [notice] 33#33: exit
+2025/04/17 09:02:06 [notice] 36#36: exit
+2025/04/17 09:02:06 [notice] 38#38: exit
+2025/04/17 09:02:06 [notice] 42#42: exit
+2025/04/17 09:02:06 [notice] 35#35: exit
+2025/04/17 09:02:06 [notice] 37#37: exit
+2025/04/17 09:02:06 [notice] 40#40: exit
+2025/04/17 09:02:06 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2025/04/17 09:02:06 [notice] 1#1: worker process 32 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 33 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:02:06 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2025/04/17 09:02:06 [notice] 1#1: worker process 34 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:02:06 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 09:02:06 [notice] 1#1: worker process 35 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:02:06 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 09:02:06 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2025/04/17 09:02:06 [notice] 1#1: worker process 36 exited with code 0
+2025/04/17 09:02:06 [notice] 1#1: exit
+2025/04/17 09:02:07 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:02:07 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:02:07 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:02:07 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:02:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:02:07 [notice] 1#1: start worker processes
+2025/04/17 09:02:07 [notice] 1#1: start worker process 25
+2025/04/17 09:02:07 [notice] 1#1: start worker process 26
+2025/04/17 09:02:07 [notice] 1#1: start worker process 27
+2025/04/17 09:02:07 [notice] 1#1: start worker process 28
+2025/04/17 09:02:07 [notice] 1#1: start worker process 29
+2025/04/17 09:02:07 [notice] 1#1: start worker process 30
+2025/04/17 09:02:07 [notice] 1#1: start worker process 31
+2025/04/17 09:02:07 [notice] 1#1: start worker process 32
+2025/04/17 09:02:07 [notice] 1#1: start worker process 33
+2025/04/17 09:02:07 [notice] 1#1: start worker process 34
+2025/04/17 09:02:07 [notice] 1#1: start worker process 35
+2025/04/17 09:02:12 [error] 25#25: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.65.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:13:01 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:13:01 [notice] 25#25: gracefully shutting down
+2025/04/17 09:13:01 [notice] 28#28: gracefully shutting down
+2025/04/17 09:13:01 [notice] 27#27: gracefully shutting down
+2025/04/17 09:13:01 [notice] 30#30: gracefully shutting down
+2025/04/17 09:13:01 [notice] 35#35: gracefully shutting down
+2025/04/17 09:13:01 [notice] 26#26: gracefully shutting down
+2025/04/17 09:13:01 [notice] 30#30: exiting
+2025/04/17 09:13:01 [notice] 33#33: gracefully shutting down
+2025/04/17 09:13:01 [notice] 32#32: gracefully shutting down
+2025/04/17 09:13:01 [notice] 34#34: gracefully shutting down
+2025/04/17 09:13:01 [notice] 29#29: gracefully shutting down
+2025/04/17 09:13:01 [notice] 31#31: gracefully shutting down
+2025/04/17 09:13:01 [notice] 28#28: exiting
+2025/04/17 09:13:01 [notice] 29#29: exiting
+2025/04/17 09:13:01 [notice] 25#25: exiting
+2025/04/17 09:13:01 [notice] 27#27: exiting
+2025/04/17 09:13:01 [notice] 30#30: exit
+2025/04/17 09:13:01 [notice] 35#35: exiting
+2025/04/17 09:13:01 [notice] 27#27: exit
+2025/04/17 09:13:01 [notice] 26#26: exiting
+2025/04/17 09:13:01 [notice] 34#34: exiting
+2025/04/17 09:13:01 [notice] 32#32: exiting
+2025/04/17 09:13:01 [notice] 33#33: exiting
+2025/04/17 09:13:01 [notice] 28#28: exit
+2025/04/17 09:13:01 [notice] 31#31: exiting
+2025/04/17 09:13:01 [notice] 29#29: exit
+2025/04/17 09:13:01 [notice] 25#25: exit
+2025/04/17 09:13:01 [notice] 35#35: exit
+2025/04/17 09:13:01 [notice] 26#26: exit
+2025/04/17 09:13:01 [notice] 34#34: exit
+2025/04/17 09:13:01 [notice] 33#33: exit
+2025/04/17 09:13:01 [notice] 32#32: exit
+2025/04/17 09:13:01 [notice] 31#31: exit
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/04/17 09:13:01 [notice] 1#1: worker process 28 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 30 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2025/04/17 09:13:01 [notice] 1#1: worker process 25 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 27 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/04/17 09:13:01 [notice] 1#1: worker process 29 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 35 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 34 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 33 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 32 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: worker process 26 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2025/04/17 09:13:01 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/04/17 09:13:01 [notice] 1#1: worker process 31 exited with code 0
+2025/04/17 09:13:01 [notice] 1#1: exit
+2025/04/17 09:13:27 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:13:27 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:13:27 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:13:27 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:13:27 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:13:27 [notice] 1#1: start worker processes
+2025/04/17 09:13:27 [notice] 1#1: start worker process 38
+2025/04/17 09:13:27 [notice] 1#1: start worker process 39
+2025/04/17 09:13:27 [notice] 1#1: start worker process 40
+2025/04/17 09:13:27 [notice] 1#1: start worker process 41
+2025/04/17 09:13:27 [notice] 1#1: start worker process 42
+2025/04/17 09:13:27 [notice] 1#1: start worker process 43
+2025/04/17 09:13:27 [notice] 1#1: start worker process 44
+2025/04/17 09:13:27 [notice] 1#1: start worker process 45
+2025/04/17 09:13:27 [notice] 1#1: start worker process 46
+2025/04/17 09:13:27 [notice] 1#1: start worker process 47
+2025/04/17 09:13:27 [notice] 1#1: start worker process 48
+2025/04/17 09:13:45 [error] 42#42: *7 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:13:50 [error] 44#44: *11 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:44:47 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:44:47 [notice] 38#38: gracefully shutting down
+2025/04/17 09:44:47 [notice] 43#43: gracefully shutting down
+2025/04/17 09:44:47 [notice] 39#39: gracefully shutting down
+2025/04/17 09:44:47 [notice] 40#40: gracefully shutting down
+2025/04/17 09:44:47 [notice] 42#42: gracefully shutting down
+2025/04/17 09:44:47 [notice] 46#46: gracefully shutting down
+2025/04/17 09:44:47 [notice] 41#41: gracefully shutting down
+2025/04/17 09:44:47 [notice] 44#44: gracefully shutting down
+2025/04/17 09:44:47 [notice] 45#45: gracefully shutting down
+2025/04/17 09:44:47 [notice] 47#47: gracefully shutting down
+2025/04/17 09:44:47 [notice] 48#48: gracefully shutting down
+2025/04/17 09:44:47 [notice] 43#43: exiting
+2025/04/17 09:44:47 [notice] 39#39: exiting
+2025/04/17 09:44:47 [notice] 38#38: exiting
+2025/04/17 09:44:47 [notice] 40#40: exiting
+2025/04/17 09:44:47 [notice] 42#42: exiting
+2025/04/17 09:44:47 [notice] 41#41: exiting
+2025/04/17 09:44:47 [notice] 44#44: exiting
+2025/04/17 09:44:47 [notice] 46#46: exiting
+2025/04/17 09:44:47 [notice] 45#45: exiting
+2025/04/17 09:44:47 [notice] 47#47: exiting
+2025/04/17 09:44:47 [notice] 45#45: exit
+2025/04/17 09:44:47 [notice] 43#43: exit
+2025/04/17 09:44:47 [notice] 47#47: exit
+2025/04/17 09:44:47 [notice] 39#39: exit
+2025/04/17 09:44:47 [notice] 48#48: exiting
+2025/04/17 09:44:47 [notice] 38#38: exit
+2025/04/17 09:44:47 [notice] 40#40: exit
+2025/04/17 09:44:47 [notice] 42#42: exit
+2025/04/17 09:44:47 [notice] 41#41: exit
+2025/04/17 09:44:47 [notice] 44#44: exit
+2025/04/17 09:44:47 [notice] 46#46: exit
+2025/04/17 09:44:47 [notice] 48#48: exit
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 09:44:47 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 09:44:47 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2025/04/17 09:44:47 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+2025/04/17 09:44:47 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+2025/04/17 09:44:47 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:44:47 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+2025/04/17 09:44:47 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 09:44:47 [notice] 1#1: exit
+2025/04/17 09:44:49 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:50 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:50 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:50 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:51 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:53 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:44:57 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:04 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:17 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:26 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:27 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:27 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:28 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:28 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:30 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:34 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:40 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:45:53 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:13 [emerg] 7#7: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:13 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:13 [emerg] 7#7: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:14 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:15 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:16 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:54 [emerg] 7#7: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:54 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:55 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:55 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:56 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:46:58 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:47:01 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:47:08 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:47:21 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:47:46 [emerg] 8#8: "location" directive is not allowed here in /etc/nginx/nginx.conf:29
+2025/04/17 09:48:38 [notice] 8#8: using the "epoll" event method
+2025/04/17 09:48:38 [notice] 8#8: nginx/1.27.5
+2025/04/17 09:48:38 [notice] 8#8: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:48:38 [notice] 8#8: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:48:38 [notice] 8#8: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:48:38 [notice] 8#8: start worker processes
+2025/04/17 09:48:38 [notice] 8#8: start worker process 9
+2025/04/17 09:48:38 [notice] 8#8: start worker process 10
+2025/04/17 09:48:38 [notice] 8#8: start worker process 11
+2025/04/17 09:48:38 [notice] 8#8: start worker process 12
+2025/04/17 09:48:38 [notice] 8#8: start worker process 13
+2025/04/17 09:48:38 [notice] 8#8: start worker process 14
+2025/04/17 09:48:38 [notice] 8#8: start worker process 15
+2025/04/17 09:48:38 [notice] 8#8: start worker process 16
+2025/04/17 09:48:38 [notice] 8#8: start worker process 17
+2025/04/17 09:48:38 [notice] 8#8: start worker process 18
+2025/04/17 09:48:38 [notice] 8#8: start worker process 19
+2025/04/17 09:48:44 [error] 9#9: *1 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:48:51 [error] 14#14: *9 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:48:55 [error] 15#15: *14 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:49:34 [error] 18#18: *17 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:50:30 [notice] 7#7: using the "epoll" event method
+2025/04/17 09:50:30 [notice] 7#7: nginx/1.27.5
+2025/04/17 09:50:30 [notice] 7#7: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:50:30 [notice] 7#7: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:50:30 [notice] 7#7: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:50:30 [notice] 7#7: start worker processes
+2025/04/17 09:50:30 [notice] 7#7: start worker process 8
+2025/04/17 09:50:30 [notice] 7#7: start worker process 9
+2025/04/17 09:50:30 [notice] 7#7: start worker process 10
+2025/04/17 09:50:30 [notice] 7#7: start worker process 11
+2025/04/17 09:50:30 [notice] 7#7: start worker process 12
+2025/04/17 09:50:30 [notice] 7#7: start worker process 13
+2025/04/17 09:50:30 [notice] 7#7: start worker process 14
+2025/04/17 09:50:30 [notice] 7#7: start worker process 15
+2025/04/17 09:50:30 [notice] 7#7: start worker process 16
+2025/04/17 09:50:30 [notice] 7#7: start worker process 17
+2025/04/17 09:50:30 [notice] 7#7: start worker process 18
+2025/04/17 09:50:36 [error] 9#9: *1 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3669/", host: "localhost"
+2025/04/17 09:52:36 [error] 11#11: *4 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3669/", host: "localhost"
+2025/04/17 09:52:43 [error] 13#13: *8 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /doc HTTP/1.1", upstream: "http://172.18.0.2:3669/doc", host: "localhost"
+2025/04/17 09:53:59 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:53:59 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:53:59 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:53:59 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:53:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:53:59 [notice] 1#1: start worker processes
+2025/04/17 09:53:59 [notice] 1#1: start worker process 38
+2025/04/17 09:53:59 [notice] 1#1: start worker process 39
+2025/04/17 09:53:59 [notice] 1#1: start worker process 40
+2025/04/17 09:53:59 [notice] 1#1: start worker process 41
+2025/04/17 09:53:59 [notice] 1#1: start worker process 42
+2025/04/17 09:53:59 [notice] 1#1: start worker process 43
+2025/04/17 09:53:59 [notice] 1#1: start worker process 44
+2025/04/17 09:53:59 [notice] 1#1: start worker process 45
+2025/04/17 09:53:59 [notice] 1#1: start worker process 46
+2025/04/17 09:53:59 [notice] 1#1: start worker process 47
+2025/04/17 09:53:59 [notice] 1#1: start worker process 48
+2025/04/17 09:54:04 [error] 38#38: *1 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:54:36 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:54:36 [notice] 39#39: gracefully shutting down
+2025/04/17 09:54:36 [notice] 47#47: gracefully shutting down
+2025/04/17 09:54:36 [notice] 40#40: gracefully shutting down
+2025/04/17 09:54:36 [notice] 42#42: gracefully shutting down
+2025/04/17 09:54:36 [notice] 41#41: gracefully shutting down
+2025/04/17 09:54:36 [notice] 45#45: gracefully shutting down
+2025/04/17 09:54:36 [notice] 41#41: exiting
+2025/04/17 09:54:36 [notice] 43#43: gracefully shutting down
+2025/04/17 09:54:36 [notice] 45#45: exiting
+2025/04/17 09:54:36 [notice] 44#44: gracefully shutting down
+2025/04/17 09:54:36 [notice] 45#45: exit
+2025/04/17 09:54:36 [notice] 38#38: gracefully shutting down
+2025/04/17 09:54:36 [notice] 44#44: exiting
+2025/04/17 09:54:36 [notice] 46#46: gracefully shutting down
+2025/04/17 09:54:36 [notice] 47#47: exiting
+2025/04/17 09:54:36 [notice] 39#39: exiting
+2025/04/17 09:54:36 [notice] 48#48: gracefully shutting down
+2025/04/17 09:54:36 [notice] 40#40: exiting
+2025/04/17 09:54:36 [notice] 42#42: exiting
+2025/04/17 09:54:36 [notice] 41#41: exit
+2025/04/17 09:54:36 [notice] 43#43: exiting
+2025/04/17 09:54:36 [notice] 38#38: exiting
+2025/04/17 09:54:36 [notice] 46#46: exiting
+2025/04/17 09:54:36 [notice] 47#47: exit
+2025/04/17 09:54:36 [notice] 44#44: exit
+2025/04/17 09:54:36 [notice] 39#39: exit
+2025/04/17 09:54:36 [notice] 48#48: exiting
+2025/04/17 09:54:36 [notice] 40#40: exit
+2025/04/17 09:54:36 [notice] 42#42: exit
+2025/04/17 09:54:36 [notice] 43#43: exit
+2025/04/17 09:54:36 [notice] 38#38: exit
+2025/04/17 09:54:36 [notice] 46#46: exit
+2025/04/17 09:54:36 [notice] 48#48: exit
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+2025/04/17 09:54:36 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2025/04/17 09:54:36 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 09:54:36 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 09:54:36 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+2025/04/17 09:54:36 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 09:54:36 [notice] 1#1: exit
+2025/04/17 09:54:40 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:54:40 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:54:40 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:54:40 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:54:40 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:54:40 [notice] 1#1: start worker processes
+2025/04/17 09:54:40 [notice] 1#1: start worker process 37
+2025/04/17 09:54:40 [notice] 1#1: start worker process 38
+2025/04/17 09:54:40 [notice] 1#1: start worker process 39
+2025/04/17 09:54:40 [notice] 1#1: start worker process 40
+2025/04/17 09:54:40 [notice] 1#1: start worker process 41
+2025/04/17 09:54:40 [notice] 1#1: start worker process 42
+2025/04/17 09:54:40 [notice] 1#1: start worker process 43
+2025/04/17 09:54:40 [notice] 1#1: start worker process 44
+2025/04/17 09:54:40 [notice] 1#1: start worker process 45
+2025/04/17 09:54:40 [notice] 1#1: start worker process 46
+2025/04/17 09:54:40 [notice] 1#1: start worker process 47
+2025/04/17 09:54:47 [error] 37#37: *1 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:54:52 [error] 43#43: *12 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:55:35 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:55:35 [notice] 37#37: gracefully shutting down
+2025/04/17 09:55:35 [notice] 44#44: gracefully shutting down
+2025/04/17 09:55:35 [notice] 42#42: gracefully shutting down
+2025/04/17 09:55:35 [notice] 44#44: exiting
+2025/04/17 09:55:35 [notice] 46#46: gracefully shutting down
+2025/04/17 09:55:35 [notice] 40#40: gracefully shutting down
+2025/04/17 09:55:35 [notice] 38#38: gracefully shutting down
+2025/04/17 09:55:35 [notice] 44#44: exit
+2025/04/17 09:55:35 [notice] 47#47: gracefully shutting down
+2025/04/17 09:55:35 [notice] 38#38: exiting
+2025/04/17 09:55:35 [notice] 43#43: gracefully shutting down
+2025/04/17 09:55:35 [notice] 38#38: exit
+2025/04/17 09:55:35 [notice] 45#45: gracefully shutting down
+2025/04/17 09:55:35 [notice] 41#41: gracefully shutting down
+2025/04/17 09:55:35 [notice] 39#39: gracefully shutting down
+2025/04/17 09:55:35 [notice] 37#37: exiting
+2025/04/17 09:55:35 [notice] 41#41: exiting
+2025/04/17 09:55:35 [notice] 42#42: exiting
+2025/04/17 09:55:35 [notice] 41#41: exit
+2025/04/17 09:55:35 [notice] 46#46: exiting
+2025/04/17 09:55:35 [notice] 40#40: exiting
+2025/04/17 09:55:35 [notice] 47#47: exiting
+2025/04/17 09:55:35 [notice] 40#40: exit
+2025/04/17 09:55:35 [notice] 43#43: exiting
+2025/04/17 09:55:35 [notice] 45#45: exiting
+2025/04/17 09:55:35 [notice] 39#39: exiting
+2025/04/17 09:55:35 [notice] 37#37: exit
+2025/04/17 09:55:35 [notice] 39#39: exit
+2025/04/17 09:55:35 [notice] 42#42: exit
+2025/04/17 09:55:35 [notice] 46#46: exit
+2025/04/17 09:55:35 [notice] 47#47: exit
+2025/04/17 09:55:35 [notice] 43#43: exit
+2025/04/17 09:55:35 [notice] 45#45: exit
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+2025/04/17 09:55:35 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2025/04/17 09:55:35 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 09:55:35 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:55:35 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 09:55:35 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:55:35 [notice] 1#1: exit
+2025/04/17 09:55:59 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:55:59 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:55:59 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:55:59 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:55:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:55:59 [notice] 1#1: start worker processes
+2025/04/17 09:55:59 [notice] 1#1: start worker process 38
+2025/04/17 09:55:59 [notice] 1#1: start worker process 39
+2025/04/17 09:55:59 [notice] 1#1: start worker process 40
+2025/04/17 09:55:59 [notice] 1#1: start worker process 41
+2025/04/17 09:55:59 [notice] 1#1: start worker process 42
+2025/04/17 09:55:59 [notice] 1#1: start worker process 43
+2025/04/17 09:55:59 [notice] 1#1: start worker process 44
+2025/04/17 09:55:59 [notice] 1#1: start worker process 45
+2025/04/17 09:55:59 [notice] 1#1: start worker process 46
+2025/04/17 09:55:59 [notice] 1#1: start worker process 47
+2025/04/17 09:55:59 [notice] 1#1: start worker process 48
+2025/04/17 09:56:06 [error] 38#38: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:56:09 [error] 38#38: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:56:24 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:56:24 [notice] 38#38: gracefully shutting down
+2025/04/17 09:56:24 [notice] 42#42: gracefully shutting down
+2025/04/17 09:56:24 [notice] 39#39: gracefully shutting down
+2025/04/17 09:56:24 [notice] 40#40: gracefully shutting down
+2025/04/17 09:56:24 [notice] 41#41: gracefully shutting down
+2025/04/17 09:56:24 [notice] 43#43: gracefully shutting down
+2025/04/17 09:56:24 [notice] 48#48: gracefully shutting down
+2025/04/17 09:56:24 [notice] 38#38: exiting
+2025/04/17 09:56:24 [notice] 45#45: gracefully shutting down
+2025/04/17 09:56:24 [notice] 47#47: gracefully shutting down
+2025/04/17 09:56:24 [notice] 44#44: gracefully shutting down
+2025/04/17 09:56:24 [notice] 46#46: gracefully shutting down
+2025/04/17 09:56:24 [notice] 42#42: exiting
+2025/04/17 09:56:24 [notice] 39#39: exiting
+2025/04/17 09:56:24 [notice] 40#40: exiting
+2025/04/17 09:56:24 [notice] 46#46: exiting
+2025/04/17 09:56:24 [notice] 41#41: exiting
+2025/04/17 09:56:24 [notice] 48#48: exiting
+2025/04/17 09:56:24 [notice] 38#38: exit
+2025/04/17 09:56:24 [notice] 47#47: exiting
+2025/04/17 09:56:24 [notice] 43#43: exiting
+2025/04/17 09:56:24 [notice] 45#45: exiting
+2025/04/17 09:56:24 [notice] 42#42: exit
+2025/04/17 09:56:24 [notice] 45#45: exit
+2025/04/17 09:56:24 [notice] 39#39: exit
+2025/04/17 09:56:24 [notice] 41#41: exit
+2025/04/17 09:56:24 [notice] 48#48: exit
+2025/04/17 09:56:24 [notice] 46#46: exit
+2025/04/17 09:56:24 [notice] 40#40: exit
+2025/04/17 09:56:24 [notice] 44#44: exiting
+2025/04/17 09:56:24 [notice] 43#43: exit
+2025/04/17 09:56:24 [notice] 47#47: exit
+2025/04/17 09:56:24 [notice] 44#44: exit
+2025/04/17 09:56:24 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+2025/04/17 09:56:24 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:56:24 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2025/04/17 09:56:24 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:56:24 [notice] 1#1: signal 17 (SIGCHLD) received from 38
+2025/04/17 09:56:24 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 09:56:24 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:56:24 [notice] 1#1: exit
+2025/04/17 09:56:25 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:56:25 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:56:25 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:56:25 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:56:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:56:25 [notice] 1#1: start worker processes
+2025/04/17 09:56:25 [notice] 1#1: start worker process 36
+2025/04/17 09:56:25 [notice] 1#1: start worker process 37
+2025/04/17 09:56:25 [notice] 1#1: start worker process 38
+2025/04/17 09:56:25 [notice] 1#1: start worker process 39
+2025/04/17 09:56:25 [notice] 1#1: start worker process 40
+2025/04/17 09:56:25 [notice] 1#1: start worker process 41
+2025/04/17 09:56:25 [notice] 1#1: start worker process 42
+2025/04/17 09:56:25 [notice] 1#1: start worker process 43
+2025/04/17 09:56:25 [notice] 1#1: start worker process 44
+2025/04/17 09:56:25 [notice] 1#1: start worker process 45
+2025/04/17 09:56:25 [notice] 1#1: start worker process 46
+2025/04/17 09:56:33 [error] 36#36: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:56:37 [error] 36#36: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:56:52 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 09:56:52 [notice] 36#36: gracefully shutting down
+2025/04/17 09:56:52 [notice] 40#40: gracefully shutting down
+2025/04/17 09:56:52 [notice] 38#38: gracefully shutting down
+2025/04/17 09:56:52 [notice] 39#39: gracefully shutting down
+2025/04/17 09:56:52 [notice] 45#45: gracefully shutting down
+2025/04/17 09:56:52 [notice] 43#43: gracefully shutting down
+2025/04/17 09:56:52 [notice] 44#44: gracefully shutting down
+2025/04/17 09:56:52 [notice] 46#46: gracefully shutting down
+2025/04/17 09:56:52 [notice] 37#37: gracefully shutting down
+2025/04/17 09:56:52 [notice] 41#41: gracefully shutting down
+2025/04/17 09:56:52 [notice] 42#42: gracefully shutting down
+2025/04/17 09:56:52 [notice] 36#36: exiting
+2025/04/17 09:56:52 [notice] 40#40: exiting
+2025/04/17 09:56:52 [notice] 38#38: exiting
+2025/04/17 09:56:52 [notice] 40#40: exit
+2025/04/17 09:56:52 [notice] 39#39: exiting
+2025/04/17 09:56:52 [notice] 45#45: exiting
+2025/04/17 09:56:52 [notice] 43#43: exiting
+2025/04/17 09:56:52 [notice] 45#45: exit
+2025/04/17 09:56:52 [notice] 44#44: exiting
+2025/04/17 09:56:52 [notice] 37#37: exiting
+2025/04/17 09:56:52 [notice] 44#44: exit
+2025/04/17 09:56:52 [notice] 46#46: exiting
+2025/04/17 09:56:52 [notice] 41#41: exiting
+2025/04/17 09:56:52 [notice] 42#42: exiting
+2025/04/17 09:56:52 [notice] 36#36: exit
+2025/04/17 09:56:52 [notice] 42#42: exit
+2025/04/17 09:56:52 [notice] 38#38: exit
+2025/04/17 09:56:52 [notice] 39#39: exit
+2025/04/17 09:56:52 [notice] 43#43: exit
+2025/04/17 09:56:52 [notice] 37#37: exit
+2025/04/17 09:56:52 [notice] 46#46: exit
+2025/04/17 09:56:52 [notice] 41#41: exit
+2025/04/17 09:56:52 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 09:56:52 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:56:52 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2025/04/17 09:56:52 [notice] 1#1: worker process 36 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:56:52 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2025/04/17 09:56:52 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2025/04/17 09:56:52 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 09:56:52 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2025/04/17 09:56:52 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 09:56:52 [notice] 1#1: exit
+2025/04/17 09:56:59 [notice] 1#1: using the "epoll" event method
+2025/04/17 09:56:59 [notice] 1#1: nginx/1.27.5
+2025/04/17 09:56:59 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 09:56:59 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 09:56:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 09:56:59 [notice] 1#1: start worker processes
+2025/04/17 09:56:59 [notice] 1#1: start worker process 37
+2025/04/17 09:56:59 [notice] 1#1: start worker process 38
+2025/04/17 09:56:59 [notice] 1#1: start worker process 39
+2025/04/17 09:56:59 [notice] 1#1: start worker process 40
+2025/04/17 09:56:59 [notice] 1#1: start worker process 41
+2025/04/17 09:56:59 [notice] 1#1: start worker process 42
+2025/04/17 09:56:59 [notice] 1#1: start worker process 43
+2025/04/17 09:56:59 [notice] 1#1: start worker process 44
+2025/04/17 09:56:59 [notice] 1#1: start worker process 45
+2025/04/17 09:56:59 [notice] 1#1: start worker process 46
+2025/04/17 09:56:59 [notice] 1#1: start worker process 47
+2025/04/17 09:57:04 [error] 38#38: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:57:04 [error] 37#37: *4 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:57:07 [error] 38#38: *2 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:57:07 [error] 37#37: *4 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:57:07 [error] 39#39: *8 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:57:10 [error] 39#39: *8 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:57:14 [error] 39#39: *8 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 09:57:17 [error] 39#39: *8 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.2:3002/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2025/04/17 09:57:17 [error] 40#40: *13 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:16:58 [error] 43#43: *19 connect() failed (113: No route to host) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:19:35 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 10:19:35 [notice] 37#37: gracefully shutting down
+2025/04/17 10:19:35 [notice] 42#42: gracefully shutting down
+2025/04/17 10:19:35 [notice] 38#38: gracefully shutting down
+2025/04/17 10:19:35 [notice] 40#40: gracefully shutting down
+2025/04/17 10:19:35 [notice] 37#37: exiting
+2025/04/17 10:19:35 [notice] 41#41: gracefully shutting down
+2025/04/17 10:19:35 [notice] 39#39: gracefully shutting down
+2025/04/17 10:19:35 [notice] 47#47: gracefully shutting down
+2025/04/17 10:19:35 [notice] 44#44: gracefully shutting down
+2025/04/17 10:19:35 [notice] 45#45: gracefully shutting down
+2025/04/17 10:19:35 [notice] 47#47: exiting
+2025/04/17 10:19:35 [notice] 46#46: gracefully shutting down
+2025/04/17 10:19:35 [notice] 43#43: gracefully shutting down
+2025/04/17 10:19:35 [notice] 47#47: exit
+2025/04/17 10:19:35 [notice] 42#42: exiting
+2025/04/17 10:19:35 [notice] 41#41: exiting
+2025/04/17 10:19:35 [notice] 38#38: exiting
+2025/04/17 10:19:35 [notice] 40#40: exiting
+2025/04/17 10:19:35 [notice] 37#37: exit
+2025/04/17 10:19:35 [notice] 39#39: exiting
+2025/04/17 10:19:35 [notice] 45#45: exiting
+2025/04/17 10:19:35 [notice] 44#44: exiting
+2025/04/17 10:19:35 [notice] 46#46: exiting
+2025/04/17 10:19:35 [notice] 42#42: exit
+2025/04/17 10:19:35 [notice] 46#46: exit
+2025/04/17 10:19:35 [notice] 41#41: exit
+2025/04/17 10:19:35 [notice] 38#38: exit
+2025/04/17 10:19:35 [notice] 40#40: exit
+2025/04/17 10:19:35 [notice] 43#43: exiting
+2025/04/17 10:19:35 [notice] 39#39: exit
+2025/04/17 10:19:35 [notice] 45#45: exit
+2025/04/17 10:19:35 [notice] 44#44: exit
+2025/04/17 10:19:35 [notice] 43#43: exit
+2025/04/17 10:19:35 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/04/17 10:19:35 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:19:35 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2025/04/17 10:19:35 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+2025/04/17 10:19:35 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:19:35 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 10:19:35 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2025/04/17 10:19:35 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 10:19:35 [notice] 1#1: exit
+2025/04/17 10:19:59 [error] 32#32: *1 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:19:59 [error] 32#32: *2 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:01 [error] 32#32: *3 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:01 [error] 32#32: *4 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:01 [error] 32#32: *5 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:02 [error] 32#32: *6 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:02 [error] 32#32: *8 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:02 [error] 32#32: *7 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:06 [error] 32#32: *10 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:06 [error] 32#32: *9 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:07 [error] 32#32: *12 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:07 [error] 32#32: *11 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:07 [error] 32#32: *13 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:07 [error] 32#32: *14 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:08 [error] 32#32: *16 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:08 [error] 32#32: *15 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:08 [error] 32#32: *18 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:08 [error] 32#32: *17 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:08 [error] 32#32: *19 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:08 [error] 32#32: *20 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:08 [error] 32#32: *21 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:08 [error] 32#32: *22 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:08 [error] 32#32: *24 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:09 [error] 32#32: *23 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:09 [error] 32#32: *26 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:09 [error] 32#32: *25 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:09 [error] 32#32: *27 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:09 [error] 32#32: *28 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:09 [error] 32#32: *30 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:09 [error] 32#32: *29 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:09 [error] 32#32: *32 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:09 [error] 32#32: *31 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:10 [error] 32#32: *34 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:10 [error] 32#32: *33 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:10 [error] 32#32: *35 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:10 [error] 32#32: *36 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:10 [error] 32#32: *37 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:10 [error] 32#32: *38 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:10 [error] 32#32: *39 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:10 [error] 32#32: *40 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 192.168.65.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:32 [notice] 1#1: using the "epoll" event method
+2025/04/17 10:20:32 [notice] 1#1: nginx/1.27.5
+2025/04/17 10:20:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 10:20:32 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 10:20:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 10:20:32 [notice] 1#1: start worker processes
+2025/04/17 10:20:32 [notice] 1#1: start worker process 32
+2025/04/17 10:20:32 [notice] 1#1: start worker process 33
+2025/04/17 10:20:32 [notice] 1#1: start worker process 34
+2025/04/17 10:20:32 [notice] 1#1: start worker process 35
+2025/04/17 10:20:32 [notice] 1#1: start worker process 36
+2025/04/17 10:20:32 [notice] 1#1: start worker process 37
+2025/04/17 10:20:32 [notice] 1#1: start worker process 38
+2025/04/17 10:20:32 [notice] 1#1: start worker process 39
+2025/04/17 10:20:32 [notice] 1#1: start worker process 40
+2025/04/17 10:20:32 [notice] 1#1: start worker process 41
+2025/04/17 10:20:32 [notice] 1#1: start worker process 42
+2025/04/17 10:20:35 [error] 33#33: *2 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:35 [error] 33#33: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.65.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/04/17 10:20:36 [error] 35#35: *4 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:56 [error] 36#36: *6 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:57 [error] 36#36: *6 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:20:59 [error] 36#36: *6 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:21:12 [error] 39#39: *9 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:21:13 [error] 39#39: *9 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:21:32 [error] 41#41: *10 directory index of "/usr/share/nginx/html/" is forbidden, client: 192.168.65.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/04/17 10:21:36 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 10:21:36 [notice] 33#33: gracefully shutting down
+2025/04/17 10:21:36 [notice] 39#39: gracefully shutting down
+2025/04/17 10:21:36 [notice] 32#32: gracefully shutting down
+2025/04/17 10:21:36 [notice] 33#33: exiting
+2025/04/17 10:21:36 [notice] 34#34: gracefully shutting down
+2025/04/17 10:21:36 [notice] 35#35: gracefully shutting down
+2025/04/17 10:21:36 [notice] 41#41: gracefully shutting down
+2025/04/17 10:21:36 [notice] 36#36: gracefully shutting down
+2025/04/17 10:21:36 [notice] 40#40: gracefully shutting down
+2025/04/17 10:21:36 [notice] 38#38: gracefully shutting down
+2025/04/17 10:21:36 [notice] 42#42: gracefully shutting down
+2025/04/17 10:21:36 [notice] 37#37: gracefully shutting down
+2025/04/17 10:21:36 [notice] 32#32: exiting
+2025/04/17 10:21:36 [notice] 39#39: exiting
+2025/04/17 10:21:36 [notice] 42#42: exiting
+2025/04/17 10:21:36 [notice] 33#33: exit
+2025/04/17 10:21:36 [notice] 34#34: exiting
+2025/04/17 10:21:36 [notice] 35#35: exiting
+2025/04/17 10:21:36 [notice] 41#41: exiting
+2025/04/17 10:21:36 [notice] 36#36: exiting
+2025/04/17 10:21:36 [notice] 34#34: exit
+2025/04/17 10:21:36 [notice] 40#40: exiting
+2025/04/17 10:21:36 [notice] 38#38: exiting
+2025/04/17 10:21:36 [notice] 40#40: exit
+2025/04/17 10:21:36 [notice] 32#32: exit
+2025/04/17 10:21:36 [notice] 37#37: exiting
+2025/04/17 10:21:36 [notice] 39#39: exit
+2025/04/17 10:21:36 [notice] 42#42: exit
+2025/04/17 10:21:36 [notice] 35#35: exit
+2025/04/17 10:21:36 [notice] 41#41: exit
+2025/04/17 10:21:36 [notice] 36#36: exit
+2025/04/17 10:21:36 [notice] 38#38: exit
+2025/04/17 10:21:36 [notice] 37#37: exit
+2025/04/17 10:21:36 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2025/04/17 10:21:36 [notice] 1#1: worker process 35 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:21:36 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2025/04/17 10:21:36 [notice] 1#1: worker process 36 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 34 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 32 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 33 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 10:21:36 [notice] 1#1: exit
+2025/04/17 10:23:46 [notice] 1#1: using the "epoll" event method
+2025/04/17 10:23:46 [notice] 1#1: nginx/1.27.5
+2025/04/17 10:23:46 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 10:23:46 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 10:23:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 10:23:46 [notice] 1#1: start worker processes
+2025/04/17 10:23:46 [notice] 1#1: start worker process 35
+2025/04/17 10:23:46 [notice] 1#1: start worker process 36
+2025/04/17 10:23:46 [notice] 1#1: start worker process 37
+2025/04/17 10:23:46 [notice] 1#1: start worker process 38
+2025/04/17 10:23:46 [notice] 1#1: start worker process 39
+2025/04/17 10:23:46 [notice] 1#1: start worker process 40
+2025/04/17 10:23:46 [notice] 1#1: start worker process 41
+2025/04/17 10:23:46 [notice] 1#1: start worker process 42
+2025/04/17 10:23:46 [notice] 1#1: start worker process 43
+2025/04/17 10:23:46 [notice] 1#1: start worker process 44
+2025/04/17 10:23:46 [notice] 1#1: start worker process 45
+2025/04/17 10:23:52 [error] 35#35: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:23:53 [error] 35#35: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:03 [error] 39#39: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:15 [error] 41#41: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:16 [error] 41#41: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:16 [error] 41#41: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:17 [error] 41#41: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:24:17 [error] 41#41: *10 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:25:13 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 10:25:13 [notice] 35#35: gracefully shutting down
+2025/04/17 10:25:13 [notice] 36#36: gracefully shutting down
+2025/04/17 10:25:13 [notice] 39#39: gracefully shutting down
+2025/04/17 10:25:13 [notice] 37#37: gracefully shutting down
+2025/04/17 10:25:13 [notice] 41#41: gracefully shutting down
+2025/04/17 10:25:13 [notice] 38#38: gracefully shutting down
+2025/04/17 10:25:13 [notice] 41#41: exiting
+2025/04/17 10:25:13 [notice] 40#40: gracefully shutting down
+2025/04/17 10:25:13 [notice] 44#44: gracefully shutting down
+2025/04/17 10:25:13 [notice] 42#42: gracefully shutting down
+2025/04/17 10:25:13 [notice] 44#44: exiting
+2025/04/17 10:25:13 [notice] 45#45: gracefully shutting down
+2025/04/17 10:25:13 [notice] 40#40: exiting
+2025/04/17 10:25:13 [notice] 43#43: gracefully shutting down
+2025/04/17 10:25:13 [notice] 35#35: exiting
+2025/04/17 10:25:13 [notice] 39#39: exiting
+2025/04/17 10:25:13 [notice] 36#36: exiting
+2025/04/17 10:25:13 [notice] 37#37: exiting
+2025/04/17 10:25:13 [notice] 38#38: exiting
+2025/04/17 10:25:13 [notice] 41#41: exit
+2025/04/17 10:25:13 [notice] 44#44: exit
+2025/04/17 10:25:13 [notice] 45#45: exiting
+2025/04/17 10:25:13 [notice] 42#42: exiting
+2025/04/17 10:25:13 [notice] 40#40: exit
+2025/04/17 10:25:13 [notice] 35#35: exit
+2025/04/17 10:25:13 [notice] 42#42: exit
+2025/04/17 10:25:13 [notice] 43#43: exiting
+2025/04/17 10:25:13 [notice] 39#39: exit
+2025/04/17 10:25:13 [notice] 36#36: exit
+2025/04/17 10:25:13 [notice] 37#37: exit
+2025/04/17 10:25:13 [notice] 38#38: exit
+2025/04/17 10:25:13 [notice] 45#45: exit
+2025/04/17 10:25:13 [notice] 43#43: exit
+2025/04/17 10:25:13 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2025/04/17 10:25:13 [notice] 1#1: worker process 35 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:25:13 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2025/04/17 10:25:13 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+2025/04/17 10:25:13 [notice] 1#1: worker process 37 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:25:13 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2025/04/17 10:25:13 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 36 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 10:25:13 [notice] 1#1: exit
+2025/04/17 10:25:14 [notice] 1#1: using the "epoll" event method
+2025/04/17 10:25:14 [notice] 1#1: nginx/1.27.5
+2025/04/17 10:25:14 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 10:25:14 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 10:25:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 10:25:14 [notice] 1#1: start worker processes
+2025/04/17 10:25:14 [notice] 1#1: start worker process 38
+2025/04/17 10:25:14 [notice] 1#1: start worker process 39
+2025/04/17 10:25:14 [notice] 1#1: start worker process 40
+2025/04/17 10:25:14 [notice] 1#1: start worker process 41
+2025/04/17 10:25:14 [notice] 1#1: start worker process 42
+2025/04/17 10:25:14 [notice] 1#1: start worker process 43
+2025/04/17 10:25:14 [notice] 1#1: start worker process 44
+2025/04/17 10:25:14 [notice] 1#1: start worker process 45
+2025/04/17 10:25:14 [notice] 1#1: start worker process 46
+2025/04/17 10:25:14 [notice] 1#1: start worker process 47
+2025/04/17 10:25:14 [notice] 1#1: start worker process 48
+2025/04/17 10:25:18 [error] 38#38: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:25:19 [error] 38#38: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.65.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3002/", host: "localhost"
+2025/04/17 10:25:40 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/17 10:25:40 [notice] 40#40: gracefully shutting down
+2025/04/17 10:25:40 [notice] 43#43: gracefully shutting down
+2025/04/17 10:25:40 [notice] 39#39: gracefully shutting down
+2025/04/17 10:25:40 [notice] 38#38: gracefully shutting down
+2025/04/17 10:25:40 [notice] 44#44: gracefully shutting down
+2025/04/17 10:25:40 [notice] 48#48: gracefully shutting down
+2025/04/17 10:25:40 [notice] 47#47: gracefully shutting down
+2025/04/17 10:25:40 [notice] 41#41: gracefully shutting down
+2025/04/17 10:25:40 [notice] 47#47: exiting
+2025/04/17 10:25:40 [notice] 42#42: gracefully shutting down
+2025/04/17 10:25:40 [notice] 45#45: gracefully shutting down
+2025/04/17 10:25:40 [notice] 46#46: gracefully shutting down
+2025/04/17 10:25:40 [notice] 42#42: exiting
+2025/04/17 10:25:40 [notice] 40#40: exiting
+2025/04/17 10:25:40 [notice] 46#46: exiting
+2025/04/17 10:25:40 [notice] 43#43: exiting
+2025/04/17 10:25:40 [notice] 39#39: exiting
+2025/04/17 10:25:40 [notice] 43#43: exit
+2025/04/17 10:25:40 [notice] 38#38: exiting
+2025/04/17 10:25:40 [notice] 44#44: exiting
+2025/04/17 10:25:40 [notice] 48#48: exiting
+2025/04/17 10:25:40 [notice] 41#41: exiting
+2025/04/17 10:25:40 [notice] 47#47: exit
+2025/04/17 10:25:40 [notice] 41#41: exit
+2025/04/17 10:25:40 [notice] 45#45: exiting
+2025/04/17 10:25:40 [notice] 42#42: exit
+2025/04/17 10:25:40 [notice] 45#45: exit
+2025/04/17 10:25:40 [notice] 40#40: exit
+2025/04/17 10:25:40 [notice] 46#46: exit
+2025/04/17 10:25:40 [notice] 39#39: exit
+2025/04/17 10:25:40 [notice] 38#38: exit
+2025/04/17 10:25:40 [notice] 44#44: exit
+2025/04/17 10:25:40 [notice] 48#48: exit
+2025/04/17 10:25:40 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+2025/04/17 10:25:40 [notice] 1#1: worker process 46 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:25:40 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+2025/04/17 10:25:40 [notice] 1#1: worker process 38 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 39 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 40 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 41 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 42 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 43 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 44 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 45 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: worker process 48 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/17 10:25:40 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2025/04/17 10:25:40 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+2025/04/17 10:25:40 [notice] 1#1: worker process 47 exited with code 0
+2025/04/17 10:25:40 [notice] 1#1: exit
+2025/04/17 10:25:42 [notice] 1#1: using the "epoll" event method
+2025/04/17 10:25:42 [notice] 1#1: nginx/1.27.5
+2025/04/17 10:25:42 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/17 10:25:42 [notice] 1#1: OS: Linux 6.10.14-linuxkit
+2025/04/17 10:25:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/17 10:25:42 [notice] 1#1: start worker processes
+2025/04/17 10:25:42 [notice] 1#1: start worker process 38
+2025/04/17 10:25:42 [notice] 1#1: start worker process 39
+2025/04/17 10:25:42 [notice] 1#1: start worker process 40
+2025/04/17 10:25:42 [notice] 1#1: start worker process 41
+2025/04/17 10:25:42 [notice] 1#1: start worker process 42
+2025/04/17 10:25:42 [notice] 1#1: start worker process 43
+2025/04/17 10:25:42 [notice] 1#1: start worker process 44
+2025/04/17 10:25:42 [notice] 1#1: start worker process 45
+2025/04/17 10:25:42 [notice] 1#1: start worker process 46
+2025/04/17 10:25:42 [notice] 1#1: start worker process 47
+2025/04/17 10:25:42 [notice] 1#1: start worker process 48

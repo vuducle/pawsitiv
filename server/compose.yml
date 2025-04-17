@@ -1,0 +1,27 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: reverse_proxy
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/templates:/etc/nginx/templates
+      - ./container_logs/nginx:/var/log/nginx
+      - ./secrets/nginx:/etc/ssl
+      - ./public_html:/usr/share/nginx/public_html  # Add this line
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_PORT=80
+      - NGINX_PROXY=http://application:3669
+    depends_on:
+      - application
+    restart: always
+
+  application:
+    image: node:current
+    ports:
+      - "3669:3669"
+    volumes:
+      - ./:/home/node/
+    working_dir: /home/node
+    command: "npm start"
