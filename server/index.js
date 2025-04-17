@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3669;
 
-app.get("/", (req, res) => {
+app.get("/hello", (req, res) => {
+    // We could get a "response" if we change it to "/" or open the path "/hello" to fix the error
     res.send("Pawsitiv");
 })
 
