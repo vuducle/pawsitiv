@@ -30,6 +30,19 @@ Pawsitiv is a platform dedicated to helping stray cats find safe homes and carin
 
 ## WIP
 
+## SSL and certificates
+WSL (and Docker obviously) is required for Windows-based systems.
+```
+cd server
+mkdir -p secrets
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048     
+  -keyout secrets/nginx-selfsigned.key     
+  -out secrets/nginx-selfsigned.crt     
+  -subj "/C=US/ST=YourState/L=YourCity/O=YourOrganization/OU=YourDepartment/CN=localhost"
+
+```
+
 ## Sneak Peek
 
 <!-- Add screenshots or mockups here -->

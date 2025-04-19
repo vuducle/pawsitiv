@@ -3,13 +3,16 @@ services:
     image: nginx:latest
     container_name: reverse_proxy
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/templates:/etc/nginx/templates
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./nginx/templates:/etc/nginx/templates
       - ./container_logs/nginx:/var/log/nginx
-      - ./secrets/nginx:/etc/ssl
+      #- ./secrets/nginx:/etc/ssl
+      - ./secrets/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt:ro
+      - ./secrets/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key:ro
       - ../frontend:/usr/share/nginx/frontend
     ports:
       - "80:80"
+      - "443:443"
     environment:
       - NGINX_PORT=80
       - NGINX_PROXY=http://application:3669

@@ -4,3 +4,9 @@
 server/node_modules
 
 server/.env
+# No need for logs and secrets keys OwO
+server/container_logs/nginx/*
+server/container_logs/nginx/access.log
+server/container_logs/nginx/error.log
+server/secrets/nginx-selfsigned.crt
+server/secrets/nginx-selfsigned.key
