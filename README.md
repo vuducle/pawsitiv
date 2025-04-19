@@ -15,6 +15,13 @@
 
 Pawsitiv is a platform dedicated to helping stray cats find safe homes and caring owners.
 
+## Prerequiresties 
+
+- Docker Desktop (MacOS or Windows)
+- WSL (Windows Subsystem for Linux)
+- Node.js and NPM
+
+
 ## Features
 
 - Create and share profiles of stray cats
@@ -33,13 +40,23 @@ Pawsitiv is a platform dedicated to helping stray cats find safe homes and carin
 ## SSL and certificates
 WSL (and Docker obviously) is required for Windows-based systems.
 ```
+# First change to the server folder, create a folder
 cd server
 mkdir -p secrets
 
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048     
+# Run this command
+openssl req -x509 -nodes -days 365 -newkey rsa:2048     
   -keyout secrets/nginx-selfsigned.key     
   -out secrets/nginx-selfsigned.crt     
   -subj "/C=US/ST=YourState/L=YourCity/O=YourOrganization/OU=YourDepartment/CN=localhost"
+
+(eventually sudo at the beginning)
+
+# Then run the docker compose file
+docker compose up -d
+
+# To stop a container
+docker compose down
 
 ```
 
