@@ -1,4 +1,4 @@
-# Pawsitiv – A Home for Every Cat
+# Pawsitive – A Home for Every Cat
 
 <p> We wanted to create an App where you can wander the Landscape and find stray cats. If you´re the first person to find the cat you can create a profile for the cat. Then everyone can see the status of the cat and different intel about her
 
@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <img src="https://th.bing.com/th/id/OIP.8V72qNvM70OfsBZJIu2b7gHaE8?rs=1&pid=ImgDetMain" alt="Pawsitiv Banner" width="60%">
+  <img src="https://th.bing.com/th/id/OIP.8V72qNvM70OfsBZJIu2b7gHaE8?rs=1&pid=ImgDetMain" alt="Pawsitive Banner" width="60%">
 </p>
 
-Pawsitiv is a platform dedicated to helping stray cats find safe homes and caring owners.
+Pawsitive is a platform dedicated to helping stray cats find safe homes and caring owners.
 
 ## Prerequiresties 
 
@@ -71,4 +71,4 @@ docker compose down
 > This project is a work in progress! Stay tuned for cat-tastic updates.
 > If we are sucessful with our idea we can extend our app for other animals :)
 
-## Remember to stay Paw-sitiv
+## Remember to stay Paw-sitive
