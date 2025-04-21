@@ -72,3 +72,21 @@ docker compose down
 > If we are sucessful with our idea we can extend our app for other animals :)
 
 ## Remember to stay Paw-sitive
+
+##Gigacat was here to spread some pawsitivity 
+
+          /| _ ╱|、  
+         ( •̀ㅅ •́  )
+        ＿ノ ヽ ノ＼＿ 
+     /　`/ ⌒Ｙ⌒ Ｙ　  \
+    ( 　(三ヽ人　 /　  |
+    |　ﾉ⌒＼ ￣￣ヽ　  ノ
+     ヽ＿＿＿＞､＿＿ ／
+         ｜( 王 ﾉ〈 
+         /ﾐ`ー―彡\ 
+       |╰        ╯|   
+      |     /\     |
+      |    /  \    |                    
+      |   /    \   |      
+   
+
