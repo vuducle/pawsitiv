@@ -28,12 +28,12 @@ Pawsitive is a platform dedicated to helping stray cats find safe homes and cari
 - Browse cats available for adoption in your area (if possible)
 - Connect with other cat lovers and rescuers (WebSocket or Socket.io ???)
 
-| Name     | Role                 |
-|----------|----------------------|
-|  Malte     | Banner & Design       |
-|  Leticia | Code & Coordination     |
-|  Sophia  | User Flow & Frontend    |
-|  Vu      | Backend Logic & Magic   |
+| Name                | Role                 |
+|---------------------|----------------------|
+| Malte Szemlics      | Banner & Design       |
+| Leticia Halm        | Code & Coordination     |
+| Sophia Kawgan Kagan | User Flow & Frontend    |
+| Vu Duc Le           | Backend Logic & Magic   |
 
 ## WIP
 

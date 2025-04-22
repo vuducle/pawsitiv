@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "express": "^5.1.0"
+  },
+  "dependencies": {
+    "express-handlebars": "^8.0.2"
   }
 }
