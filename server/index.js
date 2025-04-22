@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const { engine } = require('express-handlebars')
 const app = express();
+const routes = require('./routes');
 const port = process.env.PORT || 3669;
 
 // CONSTANTS FOR THE PATHS BRAH
@@ -34,6 +35,7 @@ app.get('/', (req, res) => {
         title: 'Pawsitiv',
     });
 });
+app.use('/', routes);
 
 app.listen(port, () => {
     console.log("Server is running on port: " + port);
