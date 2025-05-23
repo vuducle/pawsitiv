@@ -19,7 +19,7 @@ export default async function CatProfilePage() {
     try {
         // --- UPDATED FETCH URL FOR CAT PROFILE ---
         // Now fetching from the new Next.js API route: /api/cats/catProfile
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3669'}/api/cats/catProfile`, { cache: 'no-store' }); // `no-store` for SSR-like behavior
+        const res = await fetch(`${process.env.BACKEND_API_URL || 'http://localhost:3669'}/api/cats/catProfile`, { cache: 'no-store' }); // `no-store` for SSR-like behavior
         if (res.ok) {
             catData = await res.json();
         } else {
