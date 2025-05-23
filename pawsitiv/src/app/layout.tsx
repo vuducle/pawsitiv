@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Header from './components/Header'; // Import the Header component (replaces header.hbs)
 import Footer from './components/Footer'; // Import the Footer component (replaces footer.hbs)
 import './globals.css'; // Global CSS for the entire application

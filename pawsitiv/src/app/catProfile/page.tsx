@@ -13,25 +13,26 @@ interface CatData {
 // This page displays the profile of a specific cat.
 // In the App Router, data fetching for Server Components is done directly within the component.
 export default async function CatProfilePage() {
-    // Fetch data from the internal API route.
-    // When fetching from an internal API route in a Server Component,
-    // it's best practice to use the full URL including the domain for server-side fetches.
-    // However, for internal API routes, Next.js automatically proxies requests
-    // if you use a relative path, making it simpler.
-    // Using a relative path here: /api/cats/catProfile
-    console.log('Fetching cat data for /catProfile from internal API...');
+    console.log('Frontend: Fetching cat data for /catProfile from internal API...');
 
     let catData: CatData | null = null;
     try {
-        // This fetch call will be executed on the server.
+        // --- UPDATED FETCH URL FOR CAT PROFILE ---
+        // Now fetching from the new Next.js API route: /api/cats/catProfile
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3669'}/api/cats/catProfile`, { cache: 'no-store' }); // `no-store` for SSR-like behavior
         if (res.ok) {
             catData = await res.json();
         } else {
             console.error(`Failed to fetch cat data: ${res.status} ${res.statusText}`);
         }
+        console.log(res);
+        if (res.ok) {
+            catData = await res.json();
+        } else {
+            console.error(`Frontend: Failed to fetch cat data: ${res.status} ${res.statusText}`);
+        }
     } catch (error) {
-        console.error('Error fetching cat data:', error);
+        console.error('Frontend: Error fetching cat data:', error);
     }
 
     if (!catData) {
@@ -39,7 +40,7 @@ export default async function CatProfilePage() {
         return (
             <div className="text-center py-16 bg-white rounded-xl shadow-lg mt-8">
                 <h1 className="text-4xl font-bold text-red-700 mb-4">Cat Profile Not Found</h1>
-                <p className="text-lg text-gray-700">Could not load the cat's profile. Please try again later.</p>
+                <p className="text-lg text-gray-700">Could not load the cat&apos;s profile. Please try again later.</p>
             </div>
         );
     }
@@ -47,7 +48,7 @@ export default async function CatProfilePage() {
     return (
         <div className="bg-white rounded-xl shadow-lg p-8 mt-8 max-w-2xl mx-auto">
             <h1 className="text-4xl font-bold text-purple-700 mb-6 text-center">
-                {catData.name}'s Profile
+                {catData.name}&rsquo;s Profile
             </h1>
 
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">

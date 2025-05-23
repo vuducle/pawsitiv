@@ -4,7 +4,7 @@ import Image from 'next/image'; // Next.js Image component for optimization
 // In the App Router, the root page file is named `page.tsx`.
 export default function HomePage() {
   const message = 'Welcome to the Pawsitiv Next.js App Router Application!';
-
+  // JULIA NGUYEN
   return (
       <div className="text-center py-16 bg-white text-black rounded-xl shadow-lg mt-8">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-4">{message}</h1>
