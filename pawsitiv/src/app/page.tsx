@@ -6,17 +6,14 @@ export default function HomePage() {
   const message = 'Welcome to the Pawsitiv Next.js App Router Application!';
 
   return (
-      <div className="text-center py-16 bg-white rounded-xl shadow-lg mt-8">
+      <div className="text-center py-16 bg-white text-black rounded-xl shadow-lg mt-8">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-4">{message}</h1>
-        <p className="text-xl text-gray-700 mb-8">This page is rendered using React Server Components within Next.js App Router.</p>
-        <Image
-            src="/images/logo.png" // Path relative to the `public` directory
-            alt="Pawsitiv Logo"
-            width={250}
-            height={250}
-            className="mx-auto rounded-lg shadow-md"
-            priority
-        />
+          <h2 className="title is-2">Mei</h2>
+          <p>Nginx with SSL and Docker</p>
+          <p>Iykyk chinese spyware</p>
+          <p>App in development, Malte will change it.</p>
+          <p>CAP</p>
+          <Image src="/img/lickingCat.webp" className="m-auto" width={200} height={200} alt="Cat" />
       </div>
   );
 }

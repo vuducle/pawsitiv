@@ -18,6 +18,7 @@ router.get("/catProfile", (req, res) => {
     mood: "magical",
     hungry: "yes",
     description: "Dave is the most truhest of cats yer eye shall ever see",
+    imageUrl: "https://http.cat/200"
   })
 
 });
