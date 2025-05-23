@@ -1,0 +1,34 @@
+# pawsitiv/docker-compose.yml
+
+services:
+  backend:
+    build:
+      context: ./server # Build from the backend directory
+      dockerfile: Dockerfile
+    container_name: pawsitiv-backend
+    ports:
+      - "3669:3669" # Expose backend port to host
+    environment:
+      - NODE_ENV=production
+      - PORT=3669
+    restart: always
+
+  frontend:
+    build:
+      context: ./pawsitiv # Build from the next-pawsitiv directory
+      dockerfile: Dockerfile
+    container_name: pawsitiv-frontend
+    ports:
+      - "3000:3000" # Expose frontend port to host
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      # IMPORTANT: NEXT_PUBLIC_BASE_URL points to the frontend's own URL,
+      # as frontend components fetch from Next.js internal API routes.
+      # The Next.js internal API routes then proxy to the 'backend' service.
+      - NEXT_PUBLIC_BASE_URL=http://localhost:3000 # When accessed from host
+      - BACKEND_API_URL=http://backend:3669 # Used by Next.js API routes internally
+    # The frontend depends on the backend starting first
+    depends_on:
+      - backend
+    restart: always
