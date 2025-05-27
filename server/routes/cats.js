@@ -14,4 +14,13 @@ router.get("/catProfile", (req, res) => {
   });
 });
 
+router.get("/catCollection", (req, res) => {
+  // Render the 'catProfile.hbs' view
+  // Pass the data object (context) to the template
+  res.render("catCollection", {
+    // 'catProfile' refers to views/catProfile.hbs
+    name: "Malte, Sophia, Leticia, Vu",
+  });
+});
+
 module.exports = router;
