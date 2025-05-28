@@ -27,7 +27,7 @@ app.engine(
   ".hbs",
   engine({
     extname: ".hbs",
-    defaultLayouts: "Main",
+    defaultLayout: "Main",
     layoutsDir: CONG_NGUYEN_DINH_VIEWS_LAYOUT,
     partialsDir: MINECRAFT_PARTIALS_DIR,
   })
@@ -45,6 +45,11 @@ app.get("/", (req, res) => {
     title: "Pawsitiv",
   });
 });
+app.get("/main", (req, res) => {
+    res.render("main", {
+        title: "Pawsitiv – Main",
+    });
+});
 
 // Main Route file
 app.use("/", routes);
@@ -52,3 +57,4 @@ app.use("/", routes);
 app.listen(port, () => {
   console.log("Server is running on port: " + port);
 });
+
