@@ -25,12 +25,8 @@ export default async function CatProfilePage() {
         } else {
             console.error(`Failed to fetch cat data: ${res.status} ${res.statusText}`);
         }
-        console.log(res);
-        if (res.ok) {
-            catData = await res.json();
-        } else {
-            console.error(`Frontend: Failed to fetch cat data: ${res.status} ${res.statusText}`);
-        }
+        //console.log(res);
+
     } catch (error) {
         console.error('Frontend: Error fetching cat data:', error);
     }

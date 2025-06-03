@@ -12,7 +12,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Hello Page", href: "/hello" },
+    { name: "Cat Collection", href: "/catCollection" },
     { name: "Cat Profile", href: "/catProfile" },
   ];
 
@@ -67,14 +67,14 @@ export default function Header() {
                   {link.name}
                 </Link>
               ))}
-              <a
+              {/*<a
                 href="/api/users"
                 className="px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-600 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 View API
-              </a>
+              </a>*/}
             </nav>
 
             {/* Mobile menu button */}
