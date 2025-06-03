@@ -14,7 +14,7 @@ router.get("/catProfile", (req, res) => {
 });
 
 router.get("/catCollection", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET");
   res.json({
     cats: [
@@ -118,6 +118,6 @@ router.get("/catCollection", (req, res) => {
       },
     ]
   })
-})
+});
 
 module.exports = router;
