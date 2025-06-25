@@ -1,32 +1,17 @@
-FROM node:20-alpine as builder
-LABEL authors="vu, malte, sophia, leticia"
+# server/Dockerfile
+FROM node:18-alpine
 
-# Stage 1: Build the backend application
 WORKDIR /app
-COPY package.json package-lock.json pnpm-lock.yaml* ./
 
-RUN \
-  if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-  elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --frozen-lockfile; \
-  else npm install; \
-  fi
+# Kopiere package.json und package-lock.json direkt aus dem Build-Kontext (dem 'server'-Ordner)
+COPY package*.json ./
 
+RUN npm install
+
+# Kopiere den REST des Build-Kontextes (also alle anderen Dateien und Ordner im 'server'-Ordner)
+# in das Arbeitsverzeichnis /app im Container.
+# HIER LAG DER FEHLER: Es muss nur "." sein, nicht "server/."
 COPY . .
 
-
-#EXPOSE 3000
-
-# Stage 2: Run the backend application
-FROM node:20-alpine AS runner
-
-WORKDIR /app
-
-ENV NODE_ENV production
-ENV PORT 3669
-
-COPY --from=builder /app ./
-
-EXPOSE ${PORT}
-
-CMD ["npm", "start"]
-
+EXPOSE 3669
+CMD [ "npm", "start" ]

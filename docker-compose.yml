@@ -1,34 +1,82 @@
-# pawsitiv/docker-compose.yml
+# docker-compose.yml
+version: '3.8' # Kann entfernt werden, wie von Docker Compose WARNUNG vorgeschlagen, ist aber unschädlich
 
 services:
+  mongodb:
+    image: mongo:6
+    container_name: pawsitiv-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pawsitiv123
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d # Nur wenn du Initialisierungs-Skripte hast
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand({ping: 1})"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - pawsitiv-network
+
   backend:
     build:
-      context: ./server # Build from the backend directory
-      dockerfile: Dockerfile
+      context: ./server # Build-Kontext ist der 'server'-Ordner
+      dockerfile: Dockerfile # Nutzt das Dockerfile im 'server'-Ordner
     container_name: pawsitiv-backend
     ports:
-      - "3669:3669" # Expose backend port to host
+      - "3669:3669"
     environment:
-      - NODE_ENV=production
       - PORT=3669
+      - MONGODB_URI=mongodb://admin:pawsitiv123@mongodb:27017/pawsitiv?authSource=admin
+      - MONGODB_CONNECTION_RETRIES=10
+      - MONGODB_CONNECTION_DELAY=5000
     restart: always
+    networks:
+      - pawsitiv-network
+    depends_on:
+      mongodb:
+        condition: service_healthy # Wartet, bis MongoDB den Healthcheck bestanden hat
 
   frontend:
     build:
-      context: ./pawsitiv # Build from the next-pawsitiv directory
+      context: ./pawsitiv # Annahme: Dein Next.js Projekt ist im Ordner 'pawsitiv'
       dockerfile: Dockerfile
     container_name: pawsitiv-frontend
     ports:
-      - "3000:3000" # Expose frontend port to host
+      - "3000:3000"
     environment:
-      - NODE_ENV=production
-      - PORT=3000
-      # IMPORTANT: NEXT_PUBLIC_BASE_URL points to the frontend's own URL,
-      # as frontend components fetch from Next.js internal API routes.
-      # The Next.js internal API routes then proxy to the 'backend' service.
-      - NEXT_PUBLIC_BASE_URL=http://localhost:3000 # When accessed from host
-      - BACKEND_API_URL=http://backend:3669 # Used by Next.js API routes internally
-    # The frontend depends on the backend starting first
+      - NEXT_PUBLIC_BASE_URL=http://backend:3669/api # 'backend' ist der Dienstname in Docker Compose
+    networks:
+      - pawsitiv-network
     depends_on:
-      - backend
-    restart: always
+      backend:
+        condition: service_started
+
+  # --- DER SEEDER-DIENST ---
+  seeder:
+    build:
+      context: ./server # Baut das Image aus dem 'server'-Ordner (wie das Backend)
+      dockerfile: Dockerfile # Verwendet das gleiche Dockerfile wie das Backend
+    container_name: pawsitiv-seeder # Eindeutiger Name für den Seeder-Container
+    environment:
+      - MONGODB_URI=mongodb://admin:pawsitiv123@mongodb:27017/pawsitiv?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy # GANZ WICHTIG: Wartet, bis MongoDB wirklich bereit ist!
+    # Dieser 'command' überschreibt den Standard-CMD des Dockerfiles (npm start)
+    # und führt stattdessen dein Seeding-Skript aus.
+    command: ["node", "db/seed.js"]
+    networks:
+      - pawsitiv-network
+    # restart: "no" ist der Standard für 'docker compose run', braucht hier nicht explizit gesetzt werden.
+
+networks:
+  pawsitiv-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
