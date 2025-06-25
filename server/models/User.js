@@ -3,45 +3,49 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Für das Hashing von Passwörtern
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Name is required.'],
-        trim: true
+  name: {
+    type: String,
+    required: [true, 'Name is required.'],
+    trim: true,
+  },
+  username: {
+    type: String,
+    required: [true, 'username is required.'],
+    unique: true, // Muss einzigartig sein
+    trim: true,
+    lowercase: true, // Speichert Benutzernamen immer in Kleinbuchstaben
+  },
+  password: {
+    type: String,
+    required: [true, 'Passwort is required.'],
+    minlength: [6, 'Password must be at least 6 characters'],
+  },
+  email: {
+    type: String,
+    required: [true, 'E-Mail ist erforderlich.'],
+    unique: true,
+    trim: true,
+    lowercase: true,
+    match: [/.+@.+\..+/, 'Pls give a valid email address.'],
+  },
+  profilePicture: {
+    type: String,
+    default: '/twice-stan.jpg', // Standard-Profilbild
+  },
+  subscribedCats: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Cat', //rweis auf ein später zu erstellendes CatProfile-Modell
     },
-    username: {
-        type: String,
-        required: [true, 'username is required.'],
-        unique: true, // Muss einzigartig sein
-        trim: true,
-        lowercase: true // Speichert Benutzernamen immer in Kleinbuchstaben
-    },
-    password: {
-        type: String,
-        required: [true, 'Passwort is required.'],
-        minlength: [6, 'Password must be at least 6 characters'],
-    },
-    email: {
-        type: String,
-        required: [true, 'E-Mail ist erforderlich.'],
-        unique: true,
-        trim: true,
-        lowercase: true,
-        match: [/.+@.+\..+/, 'Pls give a valid email address.']
-    },
-    profilePicture: {
-        type: String,
-        default: '/twice-stan.jpg' // Standard-Profilbild
-    },
-    subscribedCats: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'CatProfile' // Verweis auf ein später zu erstellendes CatProfile-Modell
-        }
-    ],
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // --- Passwort-Hashing Pre-Save Hook ---

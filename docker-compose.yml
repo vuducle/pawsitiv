@@ -69,7 +69,7 @@ services:
         condition: service_healthy # GANZ WICHTIG: Wartet, bis MongoDB wirklich bereit ist!
     # Dieser 'command' überschreibt den Standard-CMD des Dockerfiles (npm start)
     # und führt stattdessen dein Seeding-Skript aus.
-    command: ["node", "db/seedUsers.js"] # Pfad ist relativ zum WORKDIR im Container (/app)
+    command: ["node", "db/seed.js"]
     networks:
       - pawsitiv-network
     # restart: "no" ist der Standard für 'docker compose run', braucht hier nicht explizit gesetzt werden.
