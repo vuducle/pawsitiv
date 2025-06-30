@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const routes = require("./routes");
+const polls = require('./routes/polls'); 
 // const {seedUsers} = require("./db/seedUsers"); // Importiert deine API-Routen (z.B. user-Routen)
 
 const port = process.env.PORT || 3669;
@@ -96,6 +97,7 @@ const setupMongoEvents = () => {
 app.use(express.json()); // Ermöglicht das Parsen von JSON-Anfragen im Request Body
 app.use(express.urlencoded({ extended: true })); // Ermöglicht das Parsen von URL-kodierten Anfragen
 app.use("/api", routes);
+app.use('/polls', polls);
 // --- API-Routen ---
 // Die Hauptroute des Backends gibt jetzt eine JSON-Begrüßung zurück.
 // Dein Next.js-Frontend wird hier keine HTML-Seite erwarten.
