@@ -10,6 +10,7 @@ const NotificationSchema = new mongoose.Schema({
       'Eine Benachrichtigung muss einem Benutzer zugeordnet sein.',
     ],
   },
+  
   cat: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Cat',
