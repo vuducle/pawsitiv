@@ -1,3 +1,18 @@
+/*
+============================================================
+📊 POLLS ROUTES - server/routes/polls.js 📊
+============================================================
+Welcome to the Polling Palace! 🏰
+Where opinions are gathered faster than a cat finds a box.
+
+Features:
+- Create and read polls!
+- Collects answers with the curiosity of a kitten. 🐱
+- If the results are weird, the cat probably voted. 🗳️
+
+Authors: Pawsitiv Team (Malte, Leticia, Sophia, Vu)
+============================================================
+*/
 const express = require('express');
 const router = express.Router();
 const Poll = require('../models/poll');
