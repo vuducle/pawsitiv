@@ -3,7 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const routes = require("./routes");
-const polls = require('./routes/polls'); 
+const polls = require('./routes/polls');
+const answerRoutes = require('./routes/answers');
+
 // const {seedUsers} = require("./db/seedUsers"); // Importiert deine API-Routen (z.B. user-Routen)
 
 const port = process.env.PORT || 3669;
