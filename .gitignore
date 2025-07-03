@@ -11,3 +11,6 @@ server/container_logs/nginx/error.log
 server/secrets/nginx-selfsigned.crt
 server/secrets/nginx-selfsigned.key
 /server/privkey.pem
+
+/coverage
+/server/coverage
