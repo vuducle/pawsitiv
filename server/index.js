@@ -1,11 +1,7 @@
 // server/index.js
-const express = require("express");
-const mongoose = require("mongoose"); // Still needed for mongoose.connection.readyState etc.
-const { connectDB, setupMongoEvents, closeDB } = require("./db/connection"); // Import from new module
-const app = express();
-const routes = require("./routes");
-const polls = require('./routes/polls');
-
+const mongoose = require("mongoose");
+const { connectDB, setupMongoEvents, closeDB } = require("./db/connection");
+const app = require("./app");
 const port = process.env.PORT || 3669;
 
 // --- Database Connection Initialization ---
@@ -19,38 +15,7 @@ const port = process.env.PORT || 3669;
     }
 })();
 
-// --- Middleware ---
-app.use(express.json()); // Enables parsing of JSON request bodies
-app.use(express.urlencoded({ extended: true })); // Enables parsing of URL-encoded request bodies
-app.use("/api", routes);
-app.use('/polls', polls);
-
-// --- API Routes ---
-// The main backend route now returns a JSON greeting.
-// Your Next.js frontend will not expect an HTML page here.
-app.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to the Pawsitiv Backend API!",
-        version: "1.0.0",
-        // documentation: "/api/docs" // Optional: Hint for API documentation
-    });
-});
-
-// Health Check Endpoint: Returns the status of the server and database
-app.get("/health", (req, res) => {
-    const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
-
-    res.json({
-        status: dbStatus === 'connected' ? 'OK' : 'WARNING',
-        server: 'running',
-        database: dbStatus,
-        uptime: process.uptime(), // Server uptime in seconds
-        timestamp: new Date().toISOString()
-    });
-});
-
 // --- Graceful Shutdown ---
-// Handles SIGINT signals (e.g., Ctrl+C) to allow for a clean shutdown.
 process.on('SIGINT', async () => {
     console.log('\n🛑 Shutting down server...');
     try {
