@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const { connectDB, setupMongoEvents, closeDB } = require("./db/connection");
 const app = require("./app");
+
 const port = process.env.PORT || 3669;
 
 // --- Database Connection Initialization ---
