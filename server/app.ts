@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import routes from "./routes";
 import { connectDB, setupMongoEvents, closeDB } from "./db/connection";
 import path from "path";
-
+import { seedDatabase } from "./db/seed";
 const app: Application = express();
 const port = process.env.PORT || 3669;
 

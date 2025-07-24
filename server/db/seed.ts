@@ -4,7 +4,7 @@ import UserModel from "../models/User";
 import CatModel from "../models/Cat";
 import NotificationModel from "../models/Notification";
 
-const seedDatabase = async (): Promise<void> => {
+export const seedDatabase = async (): Promise<void> => {
   try {
     console.log("🗑️ Lösche bestehende Daten...");
     await UserModel.deleteMany({});
