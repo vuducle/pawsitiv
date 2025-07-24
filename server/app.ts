@@ -3,11 +3,20 @@ import routes from "./routes";
 import { connectDB, setupMongoEvents, closeDB } from "./db/connection";
 import path from "path";
 import { seedDatabase } from "./db/seed";
+import session from "express-session";
 const app: Application = express();
 const port = process.env.PORT || 3669;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "pawsitiv-secret-key", // Change this secret for production
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // Set to true if using HTTPS
+  })
+);
 app.use("/api", routes);
 
 app.get("/", (_req: Request, res: Response) => {

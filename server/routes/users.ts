@@ -4,8 +4,25 @@ import upload from "../middleware/upload";
 import sharp from "sharp";
 import fs from "fs";
 import path from "path";
+import session from "express-session";
+import bcrypt from "bcryptjs";
 
 const router = Router();
+
+// Extend session type to include userId
+declare module "express-session" {
+  interface SessionData {
+    userId?: string;
+  }
+}
+
+// Simple session-based authentication middleware
+function isAuthenticated(req: Request, res: Response, next: Function) {
+  if (req.session && req.session.userId) {
+    return next();
+  }
+  return res.status(401).json({ error: "Authentication required" });
+}
 
 // Route: GET /users/
 router.get("/", async (_req: Request, res: Response) => {
@@ -46,7 +63,7 @@ router.post("/", async (req: Request, res: Response) => {
 });
 
 // UPDATE a user by ID
-router.put("/:id", async (req: Request, res: Response) => {
+router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -60,7 +77,7 @@ router.put("/:id", async (req: Request, res: Response) => {
 });
 
 // DELETE a user by ID
-router.delete("/:id", async (req: Request, res: Response) => {
+router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findByIdAndDelete(req.params.id);
     if (!user) return res.status(404).json({ error: "User not found" });
@@ -68,6 +85,38 @@ router.delete("/:id", async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
+});
+
+// LOGIN route
+router.post("/login", async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ error: "Email and password required" });
+  }
+  try {
+    const user = (await UserModel.findOne({ email })) as any;
+    if (!user) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+    req.session.userId = (user._id as string).toString();
+    res.json({ message: "Login successful", userId: user._id.toString() });
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// LOGOUT route
+router.post("/logout", (req: Request, res: Response) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ error: "Logout failed" });
+    }
+    res.json({ message: "Logout successful" });
+  });
 });
 
 // Upload user profile image/video

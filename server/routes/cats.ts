@@ -4,11 +4,27 @@ import upload from "../middleware/upload";
 import sharp from "sharp";
 import fs from "fs";
 import path from "path";
+import session from "express-session";
+
+// Extend session type to include userId
+declare module "express-session" {
+  interface SessionData {
+    userId?: string;
+  }
+}
 
 const router = Router();
 
+// Simple session-based authentication middleware
+function isAuthenticated(req: Request, res: Response, next: Function) {
+  if (req.session && req.session.userId) {
+    return next();
+  }
+  return res.status(401).json({ error: "Authentication required" });
+}
+
 // CREATE a new cat
-router.post("/", async (req: Request, res: Response) => {
+router.post("/", isAuthenticated, async (req: Request, res: Response) => {
   try {
     const cat = new CatModel(req.body);
     await cat.save();
@@ -40,7 +56,7 @@ router.get("/:id", async (req: Request, res: Response) => {
 });
 
 // UPDATE a cat by ID
-router.put("/:id", async (req: Request, res: Response) => {
+router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
     const cat = await CatModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -54,7 +70,7 @@ router.put("/:id", async (req: Request, res: Response) => {
 });
 
 // DELETE a cat by ID
-router.delete("/:id", async (req: Request, res: Response) => {
+router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
     const cat = await CatModel.findByIdAndDelete(req.params.id);
     if (!cat) return res.status(404).json({ error: "Cat not found" });
