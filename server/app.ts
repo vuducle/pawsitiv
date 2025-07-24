@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import routes from "./routes";
 import { connectDB, setupMongoEvents, closeDB } from "./db/connection";
+import path from "path";
 
 const app: Application = express();
 const port = process.env.PORT || 3669;
@@ -17,6 +18,9 @@ app.get("/", (_req: Request, res: Response) => {
     team: "Entwickelt von Malte Szemlics, Sophia Kawgan Kagan, Leticia Halm und Vu Duc (Minh) Le",
   });
 });
+
+// Serve uploaded files statically
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 (async () => {
   try {

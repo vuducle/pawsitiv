@@ -2,7 +2,12 @@
   "devDependencies": {
     "@types/bcryptjs": "^3.0.0",
     "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/sharp": "^0.32.0",
     "@types/supertest": "^6.0.3",
     "supertest": "^7.1.1"
+  },
+  "dependencies": {
+    "sharp": "^0.34.3"
   }
 }
