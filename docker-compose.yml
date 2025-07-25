@@ -1,31 +1,11 @@
 # docker-compose.yml
-version: '3.8' # Kann entfernt werden, wie von Docker Compose WARNUNG vorgeschlagen, ist aber unschädlich
+version: "3.8" # Kann entfernt werden, wie von Docker Compose WARNUNG vorgeschlagen, ist aber unschädlich
 
 services:
-  mongodb:
-    image: mongo:6
-    container_name: pawsitiv-mongodb
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: pawsitiv123
-    volumes:
-      - mongodb_data:/data/db
-      - ./mongo-init:/docker-entrypoint-initdb.d # Nur wenn du Initialisierungs-Skripte hast
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand({ping: 1})"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-    networks:
-      - pawsitiv-network
-
   backend:
     build:
-      context: ./server # Build-Kontext ist der 'server'-Ordner
-      dockerfile: Dockerfile # Nutzt das Dockerfile im 'server'-Ordner
+      context: ./server
+      dockerfile: Dockerfile
     container_name: pawsitiv-backend
     ports:
       - "3669:3669"
@@ -39,8 +19,26 @@ services:
       - pawsitiv-network
     depends_on:
       mongodb:
-        condition: service_healthy # Wartet, bis MongoDB den Healthcheck bestanden hat
+        condition: service_healthy
 
+  mongodb:
+    image: mongo:6
+    container_name: pawsitiv-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pawsitiv123
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand({ping: 1})"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - pawsitiv-network
   frontend:
     build:
       context: ./pawsitiv # Annahme: Dein Next.js Projekt ist im Ordner 'pawsitiv'
@@ -69,7 +67,7 @@ services:
         condition: service_healthy # GANZ WICHTIG: Wartet, bis MongoDB wirklich bereit ist!
     # Dieser 'command' überschreibt den Standard-CMD des Dockerfiles (npm start)
     # und führt stattdessen dein Seeding-Skript aus.
-    command: ["node", "db/seed.js"]
+    command: ["node", "dist/db/seed.js"]
     networks:
       - pawsitiv-network
     # restart: "no" ist der Standard für 'docker compose run', braucht hier nicht explizit gesetzt werden.

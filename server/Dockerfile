@@ -1,17 +1,21 @@
-# server/Dockerfile
-FROM node:18-alpine
+# Use official Node.js LTS image
+FROM node:18
 
+# Set working directory
 WORKDIR /app
 
-# Kopiere package.json und package-lock.json direkt aus dem Build-Kontext (dem 'server'-Ordner)
+# Install dependencies first (for better caching)
 COPY package*.json ./
-
 RUN npm install
 
-# Kopiere den REST des Build-Kontextes (also alle anderen Dateien und Ordner im 'server'-Ordner)
-# in das Arbeitsverzeichnis /app im Container.
-# HIER LAG DER FEHLER: Es muss nur "." sein, nicht "server/."
+# Copy the rest of the source code
 COPY . .
 
+# Build TypeScript
+RUN npm run build
+
+# Expose the backend port
 EXPOSE 3669
-CMD [ "npm", "start" ]
+
+# Start the server
+CMD ["node", "dist/app.js"]
