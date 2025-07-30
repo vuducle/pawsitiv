@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fffafc;
   --foreground: #171717;
+  --kpop-pink: #FFB7E5;
+  --kpop-purple: #B5A1FF;
+  --kpop-blue: #A7E0FF;
+  --kpop-mint: #A7FFD8;
+  --kpop-yellow: #FFF5A7;
+  --glass-white: rgba(255,255,255,0.25);
+  --glass-border: rgba(255,255,255,0.18);
 }
 
 @theme inline {
@@ -23,4 +30,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Glassmorphism utility class */
+.glass {
+  background: var(--glass-white);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
 }
