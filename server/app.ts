@@ -5,16 +5,31 @@ import path from "path";
 import { seedDatabase } from "./db/seed";
 import session from "express-session";
 const app: Application = express();
+const cors = require("cors");
 const port = process.env.PORT || 3669;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3001"], // Allow only your frontend origins
+    credentials: true, // Allow sending of cookies, etc.
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+app.use(
   session({
     secret: "pawsitiv-secret-key", // Change this secret for production
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }, // Set to true if using HTTPS
+    saveUninitialized: false, // Don't save uninitialized sessions
+    cookie: {
+      secure: false, // Set to true if using HTTPS
+      httpOnly: true, // Prevents client-side access to the cookie
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      sameSite: "lax", // Allows cross-site requests
+    },
+    name: "pawsitiv-session", // Custom session name
   })
 );
 app.use("/api", routes);
