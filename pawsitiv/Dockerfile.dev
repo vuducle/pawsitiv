@@ -1,0 +1,24 @@
+# Development Dockerfile for Frontend
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json yarn.lock* pnpm-lock.yaml* ./
+
+# Install dependencies
+RUN \
+    if [ -f yarn.lock ]; then yarn install; \
+    elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install; \
+    else npm install; \
+    fi
+
+# Copy source code
+COPY . .
+
+# Expose the frontend port
+EXPOSE 3000
+
+# Start the development server
+CMD ["npm", "run", "dev"] 

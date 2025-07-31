@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import CatModel from "../models/Cat";
+import { CatModel } from "../models/Cat";
 import upload from "../middleware/upload";
 import sharp from "sharp";
 import fs from "fs";
@@ -26,8 +26,7 @@ function isAuthenticated(req: Request, res: Response, next: Function) {
 // CREATE a new cat
 router.post("/", isAuthenticated, async (req: Request, res: Response) => {
   try {
-    const cat = new CatModel(req.body);
-    await cat.save();
+    const cat = await CatModel.create(req.body);
     res.status(201).json(cat);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
@@ -37,7 +36,7 @@ router.post("/", isAuthenticated, async (req: Request, res: Response) => {
 // READ all cats
 router.get("/", async (_req: Request, res: Response) => {
   try {
-    const cats = await CatModel.find();
+    const cats = await CatModel.getAll();
     res.json(cats);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -47,7 +46,8 @@ router.get("/", async (_req: Request, res: Response) => {
 // READ a single cat by ID
 router.get("/:id", async (req: Request, res: Response) => {
   try {
-    const cat = await CatModel.findById(req.params.id);
+    const catId = parseInt(req.params.id);
+    const cat = await CatModel.findById(catId);
     if (!cat) return res.status(404).json({ error: "Cat not found" });
     res.json(cat);
   } catch (error: any) {
@@ -58,10 +58,8 @@ router.get("/:id", async (req: Request, res: Response) => {
 // UPDATE a cat by ID
 router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
-    const cat = await CatModel.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const catId = parseInt(req.params.id);
+    const cat = await CatModel.update(catId, req.body);
     if (!cat) return res.status(404).json({ error: "Cat not found" });
     res.json(cat);
   } catch (error: any) {
@@ -72,8 +70,9 @@ router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
 // DELETE a cat by ID
 router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
-    const cat = await CatModel.findByIdAndDelete(req.params.id);
-    if (!cat) return res.status(404).json({ error: "Cat not found" });
+    const catId = parseInt(req.params.id);
+    const deleted = await CatModel.delete(catId);
+    if (!deleted) return res.status(404).json({ error: "Cat not found" });
     res.json({ message: "Cat deleted" });
   } catch (error: any) {
     res.status(400).json({ error: error.message });
