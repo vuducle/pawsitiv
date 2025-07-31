@@ -1,19 +1,23 @@
 import "dotenv/config";
-import mongoose from "mongoose";
-import UserModel from "../models/User";
-import CatModel from "../models/Cat";
-import NotificationModel from "../models/Notification";
+import { connectDB, closeDB } from "./connection";
+import { UserModel } from "../models/User";
+import { CatModel } from "../models/Cat";
+import { NotificationModel } from "../models/Notification";
 
 export const seedDatabase = async (): Promise<void> => {
   try {
-    console.log("🗑️ Lösche bestehende Daten...");
-    await UserModel.deleteMany({});
-    await CatModel.deleteMany({});
-    await NotificationModel.deleteMany({});
-    console.log("✅ Bestehende Daten gelöscht.");
+    console.log("🗑️ Deleting existing data...");
+    // Clear all tables
+    const client = await (await import("./connection")).getClient();
+    await client.query("DELETE FROM notifications");
+    await client.query("DELETE FROM user_cat_subscriptions");
+    await client.query("DELETE FROM cats");
+    await client.query("DELETE FROM users");
+    client.release();
+    console.log("✅ Existing data deleted.");
 
-    // --- Benutzerdaten ---
-    console.log("✨ Erstelle neue Benutzer...");
+    // --- User data ---
+    console.log("✨ Creating new users...");
     const usersData = [
       {
         name: "Cloud Strife",
@@ -21,6 +25,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "cloudstrife",
         email: "cloud.strife@example.com",
         profilePicture: "/upload/profile/cloudstrife.jpg",
+        isAdmin: false,
       },
       {
         name: "Tifa Lockhart",
@@ -28,6 +33,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "tifalockhart",
         email: "tifa.lockhart@example.com",
         profilePicture: "/upload/profile/tifalockhart.jpg",
+        isAdmin: false,
       },
       {
         name: "Malte Szemlics",
@@ -35,6 +41,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "malteszemlics",
         email: "malte.szemlics@example.com",
         profilePicture: "/upload/profile/malteszemlics.jpg",
+        isAdmin: true,
       },
       {
         name: "Leticia Halm",
@@ -42,6 +49,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "leticiahalm",
         email: "leticia.halm@example.com",
         profilePicture: "/upload/profile/leticiahalm.jpg",
+        isAdmin: false,
       },
       {
         name: "Sophia Kawgan Kagan",
@@ -49,6 +57,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "sophiakawgankagan",
         email: "sophia.kawgankagan@example.com",
         profilePicture: "/upload/profile/sophiakawgankagan.jpg",
+        isAdmin: false,
       },
       {
         name: "Vu Duc Le",
@@ -56,6 +65,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "vuducle",
         email: "vuducle@example.com",
         profilePicture: "/upload/profile/vuducle.jpg",
+        isAdmin: false,
       },
       {
         name: "Winston Reichelt",
@@ -63,6 +73,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "winstonreichelt",
         email: "winston.reichelt@example.com",
         profilePicture: "/upload/profile/winstonreichelt.jpg",
+        isAdmin: false,
       },
       {
         name: "Homam Mousa",
@@ -70,6 +81,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "homammousa",
         email: "homam.mousa@example.com",
         profilePicture: "/upload/profile/homammousa.jpg",
+        isAdmin: false,
       },
       {
         name: "Triesnha Ameilya",
@@ -77,6 +89,7 @@ export const seedDatabase = async (): Promise<void> => {
         password: "triesnhaameilya",
         email: "triesnha.ameilya@example.com",
         profilePicture: "/upload/profile/triesnhaameilya.jpg",
+        isAdmin: false,
       },
       {
         name: "Armin Dorri",
@@ -84,15 +97,40 @@ export const seedDatabase = async (): Promise<void> => {
         password: "armindorri",
         email: "armin.dorri@example.com",
         profilePicture: "/upload/profile/armindorri.jpg",
+        isAdmin: false,
+      },
+      {
+        name: "Vu Minh Le ",
+        username: "vuminhle",
+        password: "vuminhle",
+        email: "vuminhle@example.com",
+        profilePicture: "/upload/profile/vuminhle.jpg",
+        isAdmin: false,
+      },
+      {
+        name: "Linh Chi Nguyen",
+        username: "linhchinguyen",
+        password: "linhchinguyen",
+        email: "linhchi.nguyen@example.com",
+        profilePicture: "/upload/profile/linhchinguyen.jpg",
+        isAdmin: false,
+      },
+      {
+        name: "Cong Nguyen Dinh",
+        username: "congnguyendinh",
+        password: "congnguyendinh",
+        email: "cong.nguyen.dinh@example.com",
+        profilePicture: "/upload/profile/congnguyendinh.jpg",
+        isAdmin: false,
       },
     ];
+
     const createdUsers: any[] = [];
     for (const userData of usersData) {
-      const user = new UserModel(userData);
-      await user.save();
+      const user = await UserModel.create(userData);
       createdUsers.push(user);
     }
-    console.log("✅ Benutzer erfolgreich erstellt!");
+    console.log("✅ Users created successfully!");
     console.log(
       createdUsers.map((user) => ({
         username: user.username,
@@ -100,8 +138,8 @@ export const seedDatabase = async (): Promise<void> => {
       }))
     );
 
-    // --- Katzendaten ---
-    console.log("✨ Erstelle neue Katzenprofile...");
+    // --- Cat data ---
+    console.log("✨ Creating new cat profiles...");
     const catsData = [
       {
         name: "Princess Purrsalot",
@@ -115,8 +153,8 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Weiß",
           furPattern: "Einfarbig",
           breed: "Perser",
-          hairLength: "lang",
-          chonkiness: "normal",
+          hairLength: "lang" as const,
+          chonkiness: "normal" as const,
         },
       },
       {
@@ -128,8 +166,8 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Schwarz",
           furPattern: "Gestreift",
           breed: "Maine Coon",
-          hairLength: "lang",
-          chonkiness: "mollig",
+          hairLength: "lang" as const,
+          chonkiness: "mollig" as const,
         },
       },
       {
@@ -145,11 +183,11 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Orange",
           furPattern: "Getigert",
           breed: "Europäisch Kurzhaar",
-          hairLength: "kurz",
-          chonkiness: "schlank",
+          hairLength: "kurz" as const,
+          chonkiness: "schlank" as const,
         },
       },
-      // Die 3 speziellen Katzen
+      // The 3 special cats
       {
         name: "Barrett",
         location: "Sector 7 Slums",
@@ -159,8 +197,8 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Schwarz",
           furPattern: "Einfarbig",
           breed: "Bombay",
-          hairLength: "kurz",
-          chonkiness: "mollig",
+          hairLength: "kurz" as const,
+          chonkiness: "mollig" as const,
         },
       },
       {
@@ -172,8 +210,8 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Weiß",
           furPattern: "Siam",
           breed: "Siamese",
-          hairLength: "kurz",
-          chonkiness: "schlank",
+          hairLength: "kurz" as const,
+          chonkiness: "schlank" as const,
         },
       },
       {
@@ -185,81 +223,100 @@ export const seedDatabase = async (): Promise<void> => {
           furColor: "Braun",
           furPattern: "Getigert",
           breed: "Abessinier",
-          hairLength: "kurz",
-          chonkiness: "normal",
+          hairLength: "kurz" as const,
+          chonkiness: "normal" as const,
+        },
+      },
+      {
+        name: "Chonkus Maximus",
+        location: "Chania, Kreta",
+        images: ["/upload/cats/chonkus_1.jpg", "/upload/cats/chonkus_2.jpg"],
+        personalityTags: ["verspielt", "neugierig", "sanft"],
+        appearance: {
+          furColor: "Schwarz",
+          furPattern: "Einfarbig",
+          breed: "Perser",
+          hairLength: "lang" as const,
+          chonkiness: "mollig" as const,
         },
       },
     ];
-    const createdCats = await CatModel.insertMany(catsData);
-    console.log("✅ Katzenprofile erfolgreich erstellt!");
+
+    const createdCats: any[] = [];
+    for (const catData of catsData) {
+      const cat = await CatModel.create(catData);
+      createdCats.push(cat);
+    }
+    console.log("✅ Cat profiles created successfully!");
     console.log(
       createdCats.map((cat) => ({ name: cat.name, location: cat.location }))
     );
 
-    // --- Benachrichtigungsdaten ---
-    console.log("✨ Erstelle neue Benachrichtigungen...");
+    // --- Notification data ---
+    console.log("✨ Creating new notifications...");
     const cloud = createdUsers.find((u) => u.username === "cloudstrife");
     const tifa = createdUsers.find((u) => u.username === "tifalockhart");
     const malte = createdUsers.find((u) => u.username === "malteszemlics");
-    const barrettCat: any = createdCats.find((c: any) => c.name === "Barrett");
-    const yunaCat: any = createdCats.find((c: any) => c.name === "Yuna");
-    const leonCat: any = createdCats.find(
-      (c: any) => c.name === "Leon S. Kennedy"
-    );
+    const barrettCat = createdCats.find((c) => c.name === "Barrett");
+    const yunaCat = createdCats.find((c) => c.name === "Yuna");
+    const leonCat = createdCats.find((c) => c.name === "Leon S. Kennedy");
+
     const notificationsData = [
       {
-        user: cloud._id,
-        cat: barrettCat._id,
-        type: "neue_katze",
-        timestamp: new Date(Date.now() - 86400000),
+        userId: cloud.id,
+        catId: barrettCat.id,
+        type: "neue_katze" as const,
         seen: false,
       },
       {
-        user: tifa._id,
-        cat: yunaCat._id,
-        type: "update_katze",
-        timestamp: new Date(Date.now() - 3600000),
+        userId: tifa.id,
+        catId: yunaCat.id,
+        type: "update_katze" as const,
         seen: true,
       },
       {
-        user: malte._id,
-        cat: leonCat._id,
-        type: "match",
-        timestamp: new Date(),
+        userId: malte.id,
+        catId: leonCat.id,
+        type: "match" as const,
         seen: false,
       },
     ];
-    const createdNotifications = await NotificationModel.insertMany(
-      notificationsData
-    );
-    console.log("✅ Benachrichtigungen erfolgreich erstellt!");
+
+    const createdNotifications: any[] = [];
+    for (const notificationData of notificationsData) {
+      const notification = await NotificationModel.create(notificationData);
+      createdNotifications.push(notification);
+    }
+
+    console.log("✅ Notifications created successfully!");
     console.log(
-      createdNotifications.map((n: any) => ({
-        user: n.user,
+      createdNotifications.map((n) => ({
+        userId: n.userId,
         type: n.type,
         seen: n.seen,
       }))
     );
-    console.log("\n--- Seeding abgeschlossen! ---");
+    console.log("\n--- Seeding completed! ---");
   } catch (error: any) {
-    console.error("❌ Fehler beim Seeden der Datenbank:", error.message);
+    console.error("❌ Error seeding database:", error.message);
     process.exit(1);
   } finally {
-    await mongoose.connection.close();
-    console.log("MongoDB Verbindung geschlossen.");
+    await closeDB();
+    console.log("PostgreSQL connection closed.");
   }
 };
 
-const DB_URI =
-  process.env.MONGO_URI || "mongodb://localhost:27017/cat_adoption_db";
-
-mongoose
-  .connect(DB_URI)
-  .then(() => {
-    console.log("MongoDB verbunden für Seeding...");
-    seedDatabase();
-  })
-  .catch((err) => {
-    console.error("MongoDB Verbindungsfehler:", err);
+const main = async () => {
+  try {
+    await connectDB();
+    console.log("PostgreSQL connected for seeding...");
+    await seedDatabase();
+  } catch (err) {
+    console.error("PostgreSQL connection error:", err);
     process.exit(1);
-  });
+  }
+};
+
+if (require.main === module) {
+  main();
+}

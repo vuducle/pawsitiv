@@ -1,0 +1,103 @@
+# docker-compose.dev.yml - Development Environment
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: pawsitiv-postgres-dev
+    environment:
+      POSTGRES_DB: pawsitiv_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pawsitiv123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - pawsitiv-network
+    restart: always
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    container_name: pawsitiv-backend-dev
+    ports:
+      - "3669:3669"
+    environment:
+      # Environment
+      - NODE_ENV=development
+
+      # Database Configuration
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=pawsitiv_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pawsitiv123
+
+      # Server Configuration
+      - PORT=3669
+
+      # Security Configuration
+      - SESSION_SECRET=pawsitiv-dev-secret-key
+      - FRONTEND_URL=http://localhost:3000
+
+      # Development Configuration
+      - SEED_DATABASE=true
+
+      # Rate Limiting (more permissive for development)
+      - RATE_LIMIT_WINDOW_MS=900000
+      - RATE_LIMIT_MAX_REQUESTS=1000
+
+      # File Upload
+      - MAX_FILE_SIZE=10485760
+
+      # Logging
+      - LOG_LEVEL=debug
+    volumes:
+      - ./server:/app
+      - ./server/uploads:/app/uploads
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - pawsitiv-network
+    restart: unless-stopped
+    command: npm run dev:watch
+
+  # Frontend Application
+  frontend:
+    build:
+      context: ./pawsitiv
+      dockerfile: Dockerfile.dev
+    container_name: pawsitiv-frontend-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_BASE_URL=http://backend:3669/api
+      - NODE_ENV=development
+    volumes:
+      - ./pawsitiv:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      backend:
+        condition: service_started
+    networks:
+      - pawsitiv-network
+    restart: unless-stopped
+
+networks:
+  pawsitiv-network:
+    driver: bridge
+
+volumes:
+  postgres_dev_data:
