@@ -3,22 +3,34 @@
 :root {
   --background: #fffafc;
   --foreground: #171717;
-  --kpop-pink: #FFB7E5;
-  --kpop-purple: #B5A1FF;
-  --kpop-blue: #A7E0FF;
-  --kpop-mint: #A7FFD8;
-  --kpop-yellow: #FFF5A7;
-  --glass-white: rgba(255,255,255,0.25);
-  --glass-border: rgba(255,255,255,0.18);
+  --kpop-pink: #ffb7e5;
+  --kpop-purple: #b5a1ff;
+  --kpop-blue: #a7e0ff;
+  --kpop-mint: #a7ffd8;
+  --kpop-yellow: #fff5a7;
+  --glass-white: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
   --text-dark: #1a1a1a;
   --text-dark-secondary: #4a4a4a;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-kpop-pink: var(--kpop-pink);
+  --color-kpop-purple: var(--kpop-purple);
+  --color-kpop-blue: var(--kpop-blue);
+  --color-kpop-mint: var(--kpop-mint);
+  --color-kpop-yellow: var(--kpop-yellow);
+  --color-kpop-gradient-from: var(--kpop-gradient-from);
+  --color-kpop-gradient-via: var(--kpop-gradient-via);
+  --color-kpop-gradient-to: var(--kpop-gradient-to);
+  --color-glass-white: var(--glass-white);
+  --color-glass-border: var(--glass-border);
+  --color-text-dark: var(--text-dark);
+  --color-text-dark-secondary: var(--text-dark-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,7 +43,8 @@
 body {
   background: linear-gradient(135deg, #fffafc 0%, #f0f8ff 50%, #fff0f5 100%);
   color: var(--text-dark);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   min-height: 100vh;
   position: relative;
 }
@@ -39,7 +52,7 @@ body {
 /* Animated background elements for K-pop aesthetic */
 body::before,
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   width: 300px;
   height: 300px;
@@ -65,7 +78,8 @@ body::after {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   33% {
@@ -82,8 +96,7 @@ body::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   position: relative;
@@ -91,7 +104,7 @@ body::after {
 }
 
 .glass::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -111,8 +124,7 @@ body::after {
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.08),
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   border-radius: 1.5rem;
   position: relative;
@@ -120,7 +132,7 @@ body::after {
 }
 
 .glass-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -136,15 +148,18 @@ body::after {
 
 /* Enhanced shadow for glassmorphism */
 .shadow-glass {
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.05),
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* K-pop gradient text */
 .kpop-gradient-text {
-  background: linear-gradient(135deg, var(--kpop-pink), var(--kpop-purple), var(--kpop-blue));
+  background: linear-gradient(
+    135deg,
+    var(--kpop-pink),
+    var(--kpop-purple),
+    var(--kpop-blue)
+  );
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -153,7 +168,8 @@ body::after {
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -174,14 +190,17 @@ body::after {
 .glass-input:focus {
   background: rgba(255, 255, 255, 0.95);
   border-color: var(--kpop-purple);
-  box-shadow: 
-    0 0 0 3px rgba(181, 161, 255, 0.1),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 3px rgba(181, 161, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Enhanced button styles */
 .glass-button {
-  background: linear-gradient(135deg, var(--kpop-pink), var(--kpop-purple), var(--kpop-blue));
+  background: linear-gradient(
+    135deg,
+    var(--kpop-pink),
+    var(--kpop-purple),
+    var(--kpop-blue)
+  );
   background-size: 200% 200%;
   border: none;
   color: white;
@@ -192,13 +211,18 @@ body::after {
 }
 
 .glass-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -221,8 +245,12 @@ body::after {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Enhanced text colors for dark theme */
@@ -240,7 +268,7 @@ body::after {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
   }
-  
+
   .glass-card {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

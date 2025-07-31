@@ -99,7 +99,7 @@ export default function ProfilePage() {
             <div className="glass p-4 rounded-xl border border-white/20">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-kpopPink/20 to-kpopPurple/20 rounded-full flex items-center justify-center">
-                  <FiUser className="h-6 w-6 text-kpopPurple" />
+                  <FiUser className="h-6 w-6 text-kpop-purple" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-kpop-dark-secondary mb-1">
@@ -116,7 +116,7 @@ export default function ProfilePage() {
             <div className="glass p-4 rounded-xl border border-white/20">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-kpopPurple/20 to-kpopBlue/20 rounded-full flex items-center justify-center">
-                  <FiUser className="h-6 w-6 text-kpopPurple" />
+                  <FiUser className="h-6 w-6 text-kpop-purple" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-kpop-dark-secondary mb-1">

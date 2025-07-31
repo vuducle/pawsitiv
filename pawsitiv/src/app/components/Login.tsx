@@ -151,7 +151,7 @@ export default function Login() {
                 Email Address
               </label>
               <div className="relative">
-                <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="email"
                   name="email"
@@ -184,7 +184,7 @@ export default function Login() {
                 Password
               </label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="password"
                   name="password"
@@ -202,7 +202,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-kpopPurple hover:text-kpopPink transition-colors duration-200 z-10"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-kpop-purple hover:text-kpop-pink transition-colors duration-200 z-10"
                 >
                   {showPassword ? (
                     <FiEyeOff className="h-5 w-5" />
@@ -252,7 +252,7 @@ export default function Login() {
               Don't have an account?{" "}
               <Link
                 href="/register"
-                className="font-semibold text-kpopPink hover:text-kpopPurple transition-colors duration-200"
+                className="font-semibold text-kpop-pink hover:text-kpop-purple transition-colors duration-200"
               >
                 Sign up here
               </Link>
@@ -261,7 +261,7 @@ export default function Login() {
             <p className="text-sm text-kpop-dark-secondary">
               <Link
                 href="/forgot-password"
-                className="font-semibold text-kpopPink hover:text-kpopPurple transition-colors duration-200"
+                className="font-semibold text-kpop-pink hover:text-kpop-purple transition-colors duration-200"
               >
                 Forgot your password?
               </Link>

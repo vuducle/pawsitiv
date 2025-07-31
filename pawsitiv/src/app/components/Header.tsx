@@ -78,7 +78,7 @@ export default function Header(): React.ReactElement {
               className="text-2xl md:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-kpopPink via-kpopPurple to-kpopBlue drop-shadow-lg"
               aria-label="Pawsitiv Home"
             >
-              Pawsitiv<span className="text-kpopPink">Next</span>
+              Pawsitiv<span className="text-kpop-pink">Next</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -89,7 +89,7 @@ export default function Header(): React.ReactElement {
                   href={link.href}
                   className={`px-3 py-2 text-base font-semibold rounded-lg transition-colors duration-200 ${
                     pathname === link.href
-                      ? "bg-kpopPink text-kpopPurple shadow-glass"
+                      ? "bg-kpopPink text-kpop-purple shadow-glass"
                       : "text-kpopBlue hover:bg-kpopPurple hover:text-white"
                   }`}
                   aria-current={pathname === link.href ? "page" : undefined}
@@ -103,7 +103,7 @@ export default function Header(): React.ReactElement {
                 <div className="flex items-center space-x-4">
                   <Link
                     href="/profile"
-                    className="flex items-center space-x-2 text-kpopPurple hover:text-kpopPink transition-colors duration-200"
+                    className="flex items-center space-x-2 text-kpop-purple hover:text-kpop-pink transition-colors duration-200"
                   >
                     <FiUser className="h-4 w-4" />
                     <span className="text-sm font-medium">{user?.name}</span>
@@ -138,7 +138,7 @@ export default function Header(): React.ReactElement {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-kpopPurple hover:text-kpopPink focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-kpop-purple hover:text-kpop-pink focus:outline-none"
                 aria-expanded={isOpen}
                 aria-label="Toggle menu"
               >
@@ -185,7 +185,7 @@ export default function Header(): React.ReactElement {
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-md text-kpopPurple hover:bg-kpopPink focus:outline-none"
+                  className="p-2 rounded-md text-kpop-purple hover:bg-kpopPink focus:outline-none"
                   aria-label="Close menu"
                 >
                   <FiX className="h-7 w-7" />
@@ -200,7 +200,7 @@ export default function Header(): React.ReactElement {
                     className={`block px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 ${
                       pathname === link.href
                         ? "bg-kpopPurple text-white shadow-glass"
-                        : "text-kpopBlue hover:bg-kpopPink hover:text-kpopPurple"
+                        : "text-kpopBlue hover:bg-kpopPink hover:text-kpop-purple"
                     }`}
                     onClick={() => setIsOpen(false)}
                     aria-current={pathname === link.href ? "page" : undefined}
@@ -214,7 +214,7 @@ export default function Header(): React.ReactElement {
                   <>
                     <Link
                       href="/profile"
-                      className="px-4 py-3 text-kpopPurple border-t border-kpopPurple/30 mt-4 block"
+                      className="px-4 py-3 text-kpop-purple border-t border-kpopPurple/30 mt-4 block"
                       onClick={() => setIsOpen(false)}
                     >
                       <div className="flex items-center space-x-2">
@@ -229,7 +229,7 @@ export default function Header(): React.ReactElement {
                         logout();
                         setIsOpen(false);
                       }}
-                      className="w-full text-left px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 text-kpopBlue hover:bg-kpopPink hover:text-kpopPurple flex items-center space-x-2"
+                      className="w-full text-left px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 text-kpopBlue hover:bg-kpopPink hover:text-kpop-purple flex items-center space-x-2"
                     >
                       <FiLogOut className="h-4 w-4" />
                       <span>Logout</span>
@@ -239,7 +239,7 @@ export default function Header(): React.ReactElement {
                   <>
                     <Link
                       href="/login"
-                      className="block px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 text-kpopBlue hover:bg-kpopPink hover:text-kpopPurple"
+                      className="block px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 text-kpopBlue hover:bg-kpopPink hover:text-kpop-purple"
                       onClick={() => setIsOpen(false)}
                     >
                       Login
@@ -266,7 +266,7 @@ export default function Header(): React.ReactElement {
               </nav>
 
               <div className="p-4 border-t border-kpopPurple/30">
-                <p className="text-kpopPurple text-sm text-center">
+                <p className="text-kpop-purple text-sm text-center">
                   © {new Date().getFullYear()} Pawsitiv — Stan responsibly!
                 </p>
               </div>

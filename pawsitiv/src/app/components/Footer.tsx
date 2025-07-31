@@ -27,7 +27,7 @@ export default function Footer(): React.ReactElement {
       aria-label="Site footer"
     >
       <div className="container mx-auto p-6">
-        <p className="text-sm text-kpopPurple font-semibold">
+        <p className="text-sm text-kpop-purple font-semibold">
           &copy; {new Date().getFullYear()} Pawsitiv Next. All rights reserved.
         </p>
         <p className="text-xs mt-2 text-kpopBlue">

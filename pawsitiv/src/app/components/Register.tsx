@@ -173,7 +173,7 @@ export default function Register() {
                 Full Name
               </label>
               <div className="relative">
-                <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="name"
                   name="name"
@@ -206,7 +206,7 @@ export default function Register() {
                 Username
               </label>
               <div className="relative">
-                <FiUserCheck className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiUserCheck className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="username"
                   name="username"
@@ -239,7 +239,7 @@ export default function Register() {
                 Email Address
               </label>
               <div className="relative">
-                <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="email"
                   name="email"
@@ -272,7 +272,7 @@ export default function Register() {
                 Password
               </label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="password"
                   name="password"
@@ -305,7 +305,7 @@ export default function Register() {
                 Confirm Password
               </label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpopPurple z-10" />
+                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-kpop-purple z-10" />
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
@@ -362,7 +362,7 @@ export default function Register() {
               Already have an account?{" "}
               <Link
                 href="/login"
-                className="font-semibold text-kpopPink hover:text-kpopPurple transition-colors duration-200"
+                className="font-semibold text-kpop-pink hover:text-kpop-purple transition-colors duration-200"
               >
                 Sign in here
               </Link>
