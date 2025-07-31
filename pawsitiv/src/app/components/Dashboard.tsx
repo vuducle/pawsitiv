@@ -28,9 +28,9 @@ const quickActions = [
   },
   {
     icon: <FiMapPin className="w-6 h-6" />,
-    title: "Create Cat Profile",
-    description: "Add a new cat to the community",
-    href: "/catProfile",
+    title: "Manage Cats",
+    description: "Create, edit, and manage cat profiles",
+    href: "/cats",
     color: "text-pink-600",
     bgColor: "bg-pink-50",
     disabled: false,
