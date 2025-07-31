@@ -108,6 +108,7 @@ cd server
 npm install
 
 # Set up database
+# create a database locally and use the postgres values of the .env.example file (we recommend pgAdmin 4)
 npm run db:migrate
 npm run db:seed
 
