@@ -15,8 +15,8 @@ const createTables = async () => {
         profile_picture VARCHAR(500) DEFAULT '/twice-stan.jpg',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         is_admin BOOLEAN DEFAULT FALSE
-      )
-    `);
+        ) 
+      `);
 
     // Create cats table
     await client.query(`
@@ -57,6 +57,20 @@ const createTables = async () => {
         UNIQUE(user_id, cat_id)
       )
     `);
+
+    // migration 2
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS cat_images (
+        id SERIAL PRIMARY KEY,
+        cat_id INTEGER REFERENCES cats(id) ON DELETE CASCADE,
+        data BYTEA NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW() 
+      )
+    `);
+
+    await client.query(`
+      ALTER TABLE cats DROP COLUMN IF EXISTS images
+      `);
 
     console.log("✅ Database tables created successfully");
   } catch (error) {

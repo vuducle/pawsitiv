@@ -43,8 +43,6 @@ export interface Cat {
   name: string;
   /** Location where the cat was found or is located */
   location: string;
-  /** Array of image URLs for the cat */
-  images: string[];
   /** Array of personality traits/tags */
   personalityTags: string[];
   /** Physical appearance details */
@@ -77,13 +75,12 @@ export class CatModel {
     const client = await getClient();
     try {
       const result = await client.query(
-        `INSERT INTO cats (name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness) 
+        `INSERT INTO cats (name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness) 
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
-         RETURNING id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
+         RETURNING id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
         [
           catData.name,
           catData.location,
-          catData.images,
           catData.personalityTags,
           catData.appearance.furColor,
           catData.appearance.furPattern,
@@ -108,7 +105,7 @@ export class CatModel {
     const client = await getClient();
     try {
       const result = await client.query(
-        "SELECT id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE id = $1",
+        "SELECT id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE id = $1",
         [id]
       );
 
@@ -126,7 +123,7 @@ export class CatModel {
     const client = await getClient();
     try {
       const result = await client.query(
-        "SELECT id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats ORDER BY created_at DESC"
+        "SELECT id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats ORDER BY created_at DESC"
       );
 
       return result.rows.map((row) => this.mapRowToCat(row));
@@ -175,7 +172,7 @@ export class CatModel {
       values.push(id);
       const result = await client.query(
         `UPDATE cats SET ${fields.join(", ")} WHERE id = $${paramCount} 
-         RETURNING id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
+         RETURNING id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
         values
       );
 
@@ -209,7 +206,7 @@ export class CatModel {
     const client = await getClient();
     try {
       const result = await client.query(
-        "SELECT id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE location ILIKE $1 ORDER BY created_at DESC",
+        "SELECT id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE location ILIKE $1 ORDER BY created_at DESC",
         [`%${location}%`]
       );
 
@@ -228,53 +225,11 @@ export class CatModel {
     const client = await getClient();
     try {
       const result = await client.query(
-        "SELECT id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE breed ILIKE $1 ORDER BY created_at DESC",
+        "SELECT id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at FROM cats WHERE breed ILIKE $1 ORDER BY created_at DESC",
         [`%${breed}%`]
       );
 
       return result.rows.map((row) => this.mapRowToCat(row));
-    } finally {
-      client.release();
-    }
-  }
-
-  /**
-   * Adds an image URL to a cat's image array
-   * @param id - Cat ID
-   * @param imageUrl - URL of the image to add
-   * @returns Promise resolving to updated cat or null if not found
-   */
-  static async addImage(id: number, imageUrl: string): Promise<Cat | null> {
-    const client = await getClient();
-    try {
-      const result = await client.query(
-        `UPDATE cats SET images = array_append(images, $1) WHERE id = $2 
-         RETURNING id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
-        [imageUrl, id]
-      );
-
-      return result.rows.length > 0 ? this.mapRowToCat(result.rows[0]) : null;
-    } finally {
-      client.release();
-    }
-  }
-
-  /**
-   * Removes an image URL from a cat's image array
-   * @param id - Cat ID
-   * @param imageUrl - URL of the image to remove
-   * @returns Promise resolving to updated cat or null if not found
-   */
-  static async removeImage(id: number, imageUrl: string): Promise<Cat | null> {
-    const client = await getClient();
-    try {
-      const result = await client.query(
-        `UPDATE cats SET images = array_remove(images, $1) WHERE id = $2 
-         RETURNING id, name, location, images, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
-        [imageUrl, id]
-      );
-
-      return result.rows.length > 0 ? this.mapRowToCat(result.rows[0]) : null;
     } finally {
       client.release();
     }
@@ -290,7 +245,6 @@ export class CatModel {
       id: row.id,
       name: row.name,
       location: row.location,
-      images: row.images || [],
       personalityTags: row.personality_tags || [],
       appearance: {
         furColor: row.fur_color,

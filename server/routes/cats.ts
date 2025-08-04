@@ -5,7 +5,8 @@ import sharp from "sharp";
 import fs from "fs";
 import path from "path";
 import session from "express-session";
-
+import { configurationStorage } from "../multerConfig";
+import { CatImageModel } from "../models/CatImage";
 // Extend session type to include userId
 declare module "express-session" {
   interface SessionData {
@@ -79,32 +80,25 @@ router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
   }
 });
 
-// Upload cat image/video
+const multer = configurationStorage();
 router.post(
   "/upload",
-  upload.single("file"),
+  multer.single("picture"),
   async (req: Request, res: Response) => {
     try {
+      const { catId } = req.body;
+      if (!catId) {
+        return res.status(400).json({ error: "catId is required" });
+      }
       if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
       }
-      const filePath = req.file.path;
-      const ext = path.extname(filePath).toLowerCase();
 
-      // Only compress images
-      if ([".jpg", ".jpeg", ".png", ".webp"].includes(ext)) {
-        const compressedPath = filePath.replace(ext, `.compressed${ext}`);
-        await sharp(filePath)
-          .resize({ width: 800 }) // Resize to max 800px width
-          .toFormat(ext === ".png" ? "png" : "jpeg", { quality: 70 }) // Compress
-          .toFile(compressedPath);
-        fs.unlinkSync(filePath); // Delete original
-        return res
-          .status(201)
-          .json({ filePath: compressedPath.replace(/^server\/?/, "/") });
-      }
-      // For videos or other files, just return the original
-      res.status(201).json({ filePath: filePath.replace(/^server\/?/, "/") });
+      const imageBuffer = fs.readFileSync(req.file.path);
+      await CatImageModel.create({ catId: Number(catId), data: imageBuffer });
+      fs.unlinkSync(req.file.path);
+
+      res.status(201).json({ message: "Image uploaded successfully" });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }

@@ -208,6 +208,7 @@ body::after {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .glass-button::before {
