@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
+import { IoMdClose } from "react-icons/io";
 
 export default function UploadPage() {
   const [preview, setPreview] = useState<string | null>(null);
@@ -42,6 +43,10 @@ export default function UploadPage() {
       return;
     }
 
+    removeAttachment();
+  };
+
+  const removeAttachment = () => {
     setUploadState("success");
     setPreview(null);
     setUploadedFile(null);
@@ -75,8 +80,21 @@ export default function UploadPage() {
           onChange={handleChange}
         />
         {preview ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={preview} alt="Preview" className="mx-auto mb-4 max-h-48" />
+          <>
+            <IoMdClose
+              className="text-4xl transition-all duration-300 hover:scale-125 hover:rotate-360 hover:text-red-500"
+              onClick={(e) => {
+                e.stopPropagation();
+                removeAttachment();
+              }}
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element*/}
+            <img
+              src={preview}
+              alt="Preview"
+              className="mx-auto mb-4 max-h-48"
+            />
+          </>
         ) : (
           <p>Drag & drop an image here, or click to select</p>
         )}
