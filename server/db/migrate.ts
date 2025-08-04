@@ -68,6 +68,10 @@ const createTables = async () => {
       )
     `);
 
+    await client.query(`
+      ALTER TABLE cats DROP COLUMN IF EXISTS images
+      `);
+
     console.log("✅ Database tables created successfully");
   } catch (error) {
     console.error("❌ Error creating tables:", error);

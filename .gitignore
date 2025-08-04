@@ -5,6 +5,8 @@ server/node_modules
 
 .env
 server/.env
+server/uploads/*
+!server/uploads/.gitkeep
 # No need for logs and secrets keys OwO
 server/container_logs/nginx/*
 server/container_logs/nginx/access.log
