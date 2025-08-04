@@ -1,11 +1,11 @@
 import { Router, Request, Response } from "express";
-import UserModel from "../models/User";
+import { UserModel } from "../models/User";
 import upload from "../middleware/upload";
 import sharp from "sharp";
 import fs from "fs";
 import path from "path";
 import session from "express-session";
-import bcrypt from "bcryptjs";
+const bcrypt = require("bcryptjs");
 
 const router = Router();
 
@@ -92,17 +92,14 @@ const handleError = (
 ) => {
   console.error("Error:", error);
 
-  if (error.name === "ValidationError") {
-    const errors = Object.values(error.errors).map((err: any) => err.message);
-    return res.status(400).json({ error: errors[0] || "Validation failed" });
-  }
-
-  if (error.code === 11000) {
-    const field = Object.keys(error.keyValue)[0];
+  if (error.code === "23505") {
+    // PostgreSQL unique constraint violation
+    const field = error.detail?.includes("email") ? "email" : "username";
     return res.status(400).json({ error: `${field} already exists` });
   }
 
-  if (error.name === "CastError") {
+  if (error.code === "22P02") {
+    // PostgreSQL invalid text representation
     return res.status(400).json({ error: "Invalid ID format" });
   }
 
@@ -114,8 +111,13 @@ const handleError = (
 // GET all users
 router.get("/", async (_req: Request, res: Response) => {
   try {
-    const users = await UserModel.find({}).select("-password");
-    res.json(users);
+    const users = await UserModel.getAll();
+    // Remove passwords from response
+    const usersWithoutPasswords = users.map((user: any) => {
+      const { password, ...userWithoutPassword } = user;
+      return userWithoutPassword;
+    });
+    res.json(usersWithoutPasswords);
   } catch (error) {
     handleError(error, res, "Failed to fetch users");
   }
@@ -124,15 +126,15 @@ router.get("/", async (_req: Request, res: Response) => {
 // GET current user (me) - MUST come before /:id route
 router.get("/me", isAuthenticated, async (req: Request, res: Response) => {
   try {
-    const user = await UserModel.findById(req.session.userId).select(
-      "-password"
-    );
+    const userId = parseInt(req.session.userId!);
+    const user = await UserModel.findById(userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    res.json({ user });
+    const { password, ...userWithoutPassword } = user;
+    res.json({ user: userWithoutPassword });
   } catch (error) {
     handleError(error, res, "Failed to fetch current user");
   }
@@ -141,14 +143,15 @@ router.get("/me", isAuthenticated, async (req: Request, res: Response) => {
 // GET user by ID
 router.get("/:id", async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id;
-    const user = await UserModel.findById(userId).select("-password");
+    const userId = parseInt(req.params.id);
+    const user = await UserModel.findById(userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    res.json(user);
+    const { password, ...userWithoutPassword } = user;
+    res.json(userWithoutPassword);
   } catch (error) {
     handleError(error, res, "Failed to fetch user");
   }
@@ -184,34 +187,31 @@ router.post("/register", async (req: Request, res: Response) => {
     }
 
     // Check if user already exists
-    const existingUser = await UserModel.findOne({
-      $or: [{ email }, { username }],
-    });
+    const existingUserByEmail = await UserModel.findByEmail(email);
+    const existingUserByUsername = await UserModel.findByUsername(username);
 
-    if (existingUser) {
-      if (existingUser.email === email) {
-        return res.status(400).json({ error: "Email already registered" });
-      }
-      if (existingUser.username === username) {
-        return res.status(400).json({ error: "Username already taken" });
-      }
+    if (existingUserByEmail) {
+      return res.status(400).json({ error: "Email already registered" });
+    }
+    if (existingUserByUsername) {
+      return res.status(400).json({ error: "Username already taken" });
     }
 
     // Create new user
-    const user = new UserModel({
+    const user = await UserModel.create({
       name,
       username,
       email,
       password,
+      profilePicture: "/twice-stan.jpg",
+      isAdmin: false,
     });
 
-    await user.save();
-
     // Set session
-    req.session.userId = (user._id as string).toString();
+    req.session.userId = user.id!.toString();
 
     // Return user without password
-    const { password: _, ...userWithoutPassword } = user.toObject();
+    const { password: _, ...userWithoutPassword } = user;
 
     res.status(201).json({
       user: userWithoutPassword,
@@ -225,10 +225,8 @@ router.post("/register", async (req: Request, res: Response) => {
 // CREATE new user (admin route)
 router.post("/", async (req: Request, res: Response) => {
   try {
-    const user = new UserModel(req.body);
-    await user.save();
-
-    const { password: _, ...userWithoutPassword } = user.toObject();
+    const user = await UserModel.create(req.body);
+    const { password, ...userWithoutPassword } = user;
     res.status(201).json(userWithoutPassword);
   } catch (error) {
     handleError(error, res, "Failed to create user");
@@ -254,16 +252,15 @@ router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
     }
     if (profilePicture) updateData.profilePicture = profilePicture;
 
-    const user = await UserModel.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-      runValidators: true,
-    }).select("-password");
+    const userId = parseInt(req.params.id);
+    const user = await UserModel.update(userId, updateData);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    res.json(user);
+    const { password, ...userWithoutPassword } = user;
+    res.json(userWithoutPassword);
   } catch (error) {
     handleError(error, res, "Failed to update user");
   }
@@ -272,9 +269,10 @@ router.put("/:id", isAuthenticated, async (req: Request, res: Response) => {
 // DELETE user by ID
 router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
   try {
-    const user = await UserModel.findByIdAndDelete(req.params.id);
+    const userId = parseInt(req.params.id);
+    const deleted = await UserModel.delete(userId);
 
-    if (!user) {
+    if (!deleted) {
       return res.status(404).json({ error: "User not found" });
     }
 
@@ -296,21 +294,21 @@ router.post("/login", async (req: Request, res: Response) => {
     }
 
     // Find user by email
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findByEmail(email);
 
     if (!user) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
     // Check password
-    const isMatch = await user.matchPassword(password);
+    const isMatch = await UserModel.matchPassword(user, password);
 
     if (!isMatch) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
     // Set session
-    req.session.userId = (user._id as string).toString();
+    req.session.userId = user.id!.toString();
 
     // Save session explicitly
     req.session.save((err) => {
@@ -320,7 +318,7 @@ router.post("/login", async (req: Request, res: Response) => {
       }
 
       // Return user without password
-      const { password: _, ...userWithoutPassword } = user.toObject();
+      const { password: _, ...userWithoutPassword } = user;
 
       res.json({
         user: userWithoutPassword,

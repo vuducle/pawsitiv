@@ -1,19 +1,19 @@
-# docker-compose.yml
+# docker-compose.prod.yml - Production Environment
 version: "3.8"
 
 services:
   # PostgreSQL Database
   postgres:
     image: postgres:15
-    container_name: pawsitiv-postgres
+    container_name: pawsitiv-postgres-prod
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-pawsitiv}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pawsitiv123}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_prod_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 10s
@@ -24,46 +24,65 @@ services:
       - pawsitiv-network
     restart: always
 
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: pawsitiv-nginx-prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./container_logs/nginx:/var/log/nginx
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - pawsitiv-network
+    restart: always
+
   # Backend API Server
   backend:
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: pawsitiv-backend
-    ports:
-      - "${BACKEND_PORT:-3669}:3669"
+      target: production
+    container_name: pawsitiv-backend-prod
+    expose:
+      - "3669"
     environment:
       # Environment
-      - NODE_ENV=${NODE_ENV:-development}
+      - NODE_ENV=production
 
       # Database Configuration
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_DB=${POSTGRES_DB:-pawsitiv}
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pawsitiv123}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
       # Server Configuration
       - PORT=3669
 
       # Security Configuration
-      - SESSION_SECRET=${SESSION_SECRET:-pawsitiv-dev-secret-key}
-      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - FRONTEND_URL=${FRONTEND_URL}
 
-      # Development Configuration
-      - SEED_DATABASE=${SEED_DATABASE:-false}
+      # Production Configuration
+      - SEED_DATABASE=false
 
-      # Rate Limiting
-      - RATE_LIMIT_WINDOW_MS=${RATE_LIMIT_WINDOW_MS:-900000}
-      - RATE_LIMIT_MAX_REQUESTS=${RATE_LIMIT_MAX_REQUESTS:-100}
+      # Rate Limiting (strict for production)
+      - RATE_LIMIT_WINDOW_MS=900000
+      - RATE_LIMIT_MAX_REQUESTS=100
 
       # File Upload
-      - MAX_FILE_SIZE=${MAX_FILE_SIZE:-5242880}
+      - MAX_FILE_SIZE=5242880
 
       # Logging
-      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_LEVEL=info
     volumes:
-      - ./server/uploads:/app/uploads
+      - backend_uploads:/app/uploads
     depends_on:
       postgres:
         condition: service_healthy
@@ -82,12 +101,12 @@ services:
     build:
       context: ./pawsitiv
       dockerfile: Dockerfile
-    container_name: pawsitiv-frontend
-    ports:
-      - "${FRONTEND_PORT:-3000}:3000"
+    container_name: pawsitiv-frontend-prod
+    expose:
+      - "3000"
     environment:
-      - NEXT_PUBLIC_BASE_URL=http://backend:3669/api
-      - NODE_ENV=${NODE_ENV:-development}
+      - NEXT_PUBLIC_BASE_URL=https://yourdomain.com/api
+      - NODE_ENV=production
     depends_on:
       backend:
         condition: service_started
@@ -100,17 +119,18 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: pawsitiv-seeder
+      target: production
+    container_name: pawsitiv-seeder-prod
     environment:
       # Database Configuration
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_DB=${POSTGRES_DB:-pawsitiv}
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pawsitiv123}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
       # Environment
-      - NODE_ENV=${NODE_ENV:-development}
+      - NODE_ENV=production
     depends_on:
       postgres:
         condition: service_healthy
@@ -125,4 +145,5 @@ networks:
     driver: bridge
 
 volumes:
-  postgres_data:
+  postgres_prod_data:
+  backend_uploads:
