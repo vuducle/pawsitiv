@@ -13,7 +13,7 @@ declare module "express-session" {
     userId?: string;
   }
 }
-
+sharp.cache(false);
 const router = Router();
 
 // Simple session-based authentication middleware
@@ -94,11 +94,32 @@ router.post(
         return res.status(400).json({ error: "No file uploaded" });
       }
 
-      const imageBuffer = fs.readFileSync(req.file.path);
-      await CatImageModel.create({ catId: Number(catId), data: imageBuffer });
-      fs.unlinkSync(req.file.path);
+      const filePath = req.file.path;
+      const ext = path.extname(filePath).toLowerCase();
 
-      res.status(201).json({ message: "Image uploaded successfully" });
+      if ([".jpg", ".jpeg", ".png", ".webp"].includes(ext)) {
+        const compressedPath = filePath.replace(ext, `.compressed${ext}`);
+        await sharp(filePath)
+          .resize({ width: 800 })
+          .toFormat(ext === ".png" ? "png" : "jpeg", { quality: 70 })
+          .toFile(compressedPath);
+
+        const imageBuffer = fs.readFileSync(compressedPath);
+        await CatImageModel.create({
+          catId: Number(catId),
+          data: imageBuffer,
+        });
+        await fs.unlink(filePath, (err) => {
+          if (err) console.error("Failed to delete original file", err);
+        });
+        await fs.unlink(compressedPath, (err) => {
+          if (err) console.error("Failed to delete original file", err);
+        });
+
+        return res.status(201).send("Image uploaded successfully");
+      }
+      // For videos or other files, just return the original
+      res.status(201).send("File uploaded successfully");
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }

@@ -32,8 +32,11 @@ export default function UploadPage() {
   const uploadFile = async (file: File) => {
     const formData = new FormData();
     formData.append("picture", file);
-    formData.append("catId", "3");
-    const res = await fetch("http://localhost:3669/api/cats/upload", {
+    formData.append("catId", "3"); // cat selection should be shown first so the catId can be taken from the selection
+    const backendUrl =
+      process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:3669";
+    console.log(backendUrl);
+    const res = await fetch(`${backendUrl}/api/cats/upload`, {
       method: "POST",
       body: formData,
     });
