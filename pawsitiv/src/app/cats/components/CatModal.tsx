@@ -53,15 +53,32 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="glass-card p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center p-4 z-50 bg-[radial-gradient(circle_at_top_left,_#ffe7f0,_#fff5ff_30%)]">
+      <div className="relative p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl bg-gradient-to-br from-white via-pink-50 to-purple-50 border border-pink-200">
+        {/* Decorative cat ears */}
+        <svg
+          aria-hidden
+          className="absolute -top-7 left-6 w-16 h-10"
+          viewBox="0 0 64 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M10 26 L22 6 L34 26 Z" fill="#FFD1E8" />
+          <path d="M36 26 L48 6 L60 26 Z" fill="#E7C5FF" />
+          <circle cx="52" cy="6" r="3" fill="#FFC1E6" />
+        </svg>
+
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">
-            {cat.name}'s Profile
-          </h2>
+          <div>
+            <h2 className="text-3xl font-extrabold leading-tight text-gray-900">
+              {cat.name}'s Profile <span className="ml-1">🐱</span>
+            </h2>
+            <p className="text-sm text-pink-600/90 mt-1">Sweet kitty details</p>
+          </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-pink-50 rounded-lg transition-colors text-pink-600"
+            aria-label="Close dialog"
           >
             <FiX className="w-6 h-6" />
           </button>
@@ -69,23 +86,23 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
 
         <div className="space-y-6">
           {/* Basic Information */}
-          <div className="glass-card p-6 rounded-2xl">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="p-6 rounded-2xl bg-white/70 border border-pink-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Basic Information
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center gap-2">
-                <FiMapPin className="w-5 h-5 text-purple-600" />
+                <FiMapPin className="w-5 h-5 text-pink-500" />
                 <div>
                   <p className="text-sm text-gray-500">Location</p>
-                  <p className="font-medium">{cat.location}</p>
+                  <p className="font-medium text-gray-900">{cat.location}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <FiCalendar className="w-5 h-5 text-purple-600" />
+                <FiCalendar className="w-5 h-5 text-pink-500" />
                 <div>
                   <p className="text-sm text-gray-500">Added</p>
-                  <p className="font-medium">
+                  <p className="font-medium text-gray-900">
                     {new Date(cat.createdAt).toLocaleDateString()}
                   </p>
                 </div>
@@ -94,8 +111,8 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
           </div>
 
           {/* Appearance */}
-          <div className="glass-card p-6 rounded-2xl">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="p-6 rounded-2xl bg-white/70 border border-pink-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
               Appearance
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -128,16 +145,16 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
 
           {/* Personality Tags */}
           {cat.personalityTags.length > 0 && (
-            <div className="glass-card p-6 rounded-2xl">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <FiTag className="w-5 h-5" />
+            <div className="p-6 rounded-2xl bg-white/70 border border-pink-100">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <FiTag className="w-5 h-5 text-pink-500" />
                 Personality
               </h3>
               <div className="flex flex-wrap gap-2">
                 {cat.personalityTags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
+                    className="px-3 py-1 bg-gradient-to-r from-white to-pink-50 text-pink-800 rounded-full text-sm border border-pink-100 shadow-sm"
                   >
                     {tag}
                   </span>
@@ -147,19 +164,19 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
           )}
 
           {/* Images */}
-          <div className="glass-card p-6 rounded-2xl">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Images</h3>
-            {cat.images.length > 0 ? (
+          <div className="p-6 rounded-2xl bg-white/70 border border-pink-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Images</h3>
+            {cat.images?.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {cat.images.map((image, index) => (
+                {cat.images?.map((image, index) => (
                   <div
                     key={index}
-                    className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center"
+                    className="aspect-square bg-pink-50 rounded-xl border border-pink-100 shadow-sm overflow-hidden"
                   >
                     <img
                       src={image}
                       alt={`${cat.name} image ${index + 1}`}
-                      className="w-full h-full object-cover rounded-lg"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         (
                           e.target as HTMLImageElement
@@ -172,8 +189,8 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-500">
-                <p>No images available</p>
+              <div className="text-center py-8 text-pink-600/70">
+                <p>No images available yet</p>
               </div>
             )}
           </div>
@@ -182,7 +199,7 @@ export default function CatModal({ cat, onClose }: CatModalProps) {
           <div className="flex justify-end pt-4">
             <button
               onClick={onClose}
-              className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg hover:scale-105 transition-transform shadow-md"
             >
               Close
             </button>

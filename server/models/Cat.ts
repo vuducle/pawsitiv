@@ -76,7 +76,7 @@ export class CatModel {
     try {
       const result = await client.query(
         `INSERT INTO cats (name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness) 
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
          RETURNING id, name, location, personality_tags, fur_color, fur_pattern, breed, hair_length, chonkiness, created_at`,
         [
           catData.name,

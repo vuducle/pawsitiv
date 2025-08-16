@@ -9,11 +9,12 @@ import {
   FiSearch,
   FiFilter,
 } from "react-icons/fi";
+import { config } from "@/config/environment";
 import CatForm from "./components/CatForm";
 import CatModal from "./components/CatModal";
 
 interface Cat {
-  _id: string;
+  id: string;
   name: string;
   location: string;
   images: string[];
@@ -38,17 +39,34 @@ export default function CatsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterBreed, setFilterBreed] = useState("");
 
-  const API_BASE =
-    process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:3669";
+  // Add development login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const devLogin = async () => {
+    try {
+      const response = await fetch(`${config.apiBaseUrl}/api/cats/dev-login`, {
+        method: "POST",
+        credentials: "include",
+      });
+      if (response.ok) {
+        setIsLoggedIn(true);
+      }
+    } catch (err) {
+      setError("Failed to login");
+    }
+  };
 
   useEffect(() => {
+    if (config.isDevelopment && !isLoggedIn) {
+      devLogin();
+    }
     fetchCats();
   }, []);
 
   const fetchCats = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_BASE}/api/cats`);
+      const response = await fetch(`${config.apiBaseUrl}/api/cats`);
       if (!response.ok) throw new Error("Failed to fetch cats");
       const data = await response.json();
       setCats(data);
@@ -63,14 +81,14 @@ export default function CatsPage() {
     if (!confirm("Are you sure you want to delete this cat?")) return;
 
     try {
-      const response = await fetch(`${API_BASE}/api/cats/${id}`, {
+      const response = await fetch(`${config.apiBaseUrl}/api/cats/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
 
       if (!response.ok) throw new Error("Failed to delete cat");
 
-      setCats(cats.filter((cat) => cat._id !== id));
+      setCats(cats.filter((cat) => cat.id !== id));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to delete cat");
     }
@@ -79,9 +97,9 @@ export default function CatsPage() {
   const handleFormSubmit = async (catData: Partial<Cat>) => {
     try {
       const url = editingCat
-        ? `${API_BASE}/api/cats/${editingCat._id}`
-        : `${API_BASE}/api/cats`;
-
+        ? `${config.apiBaseUrl}/api/cats/${editingCat.id}`
+        : `${config.apiBaseUrl}/api/cats`;
+      console.log(editingCat);
       const response = await fetch(url, {
         method: editingCat ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -94,9 +112,7 @@ export default function CatsPage() {
       const savedCat = await response.json();
 
       if (editingCat) {
-        setCats(
-          cats.map((cat) => (cat._id === editingCat._id ? savedCat : cat))
-        );
+        setCats(cats.map((cat) => (cat.id === editingCat.id ? savedCat : cat)));
       } else {
         setCats([...cats, savedCat]);
       }
@@ -188,9 +204,9 @@ export default function CatsPage() {
 
         {/* Cats Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredCats.map((cat) => (
+          {filteredCats.map((cat, index) => (
             <div
-              key={cat._id}
+              key={index}
               className="glass-card p-6 rounded-2xl hover:scale-105 transition-transform duration-200"
             >
               <div className="flex items-center justify-between mb-4">
@@ -214,7 +230,7 @@ export default function CatsPage() {
                     <FiEdit className="w-4 h-4" />
                   </button>
                   <button
-                    onClick={() => handleDelete(cat._id)}
+                    onClick={() => handleDelete(cat.id)}
                     className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                     title="Delete"
                   >
@@ -262,7 +278,7 @@ export default function CatsPage() {
                 </div>
               )}
 
-              {cat.images.length > 0 && (
+              {cat.images?.length > 0 && (
                 <div className="mt-4">
                   <p className="text-sm font-semibold text-gray-700 mb-2">
                     Images: {cat.images.length}

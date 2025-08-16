@@ -16,13 +16,28 @@ declare module "express-session" {
 sharp.cache(false);
 const router = Router();
 
-// Simple session-based authentication middleware
+// Modify the authentication middleware to be more lenient in development
 function isAuthenticated(req: Request, res: Response, next: Function) {
+  // TODO: Remove this bypass in production
+  if (process.env.NODE_ENV === "development") {
+    return next();
+  }
+
   if (req.session && req.session.userId) {
     return next();
   }
   return res.status(401).json({ error: "Authentication required" });
 }
+
+// Add a development login endpoint
+router.post("/dev-login", (req: Request, res: Response) => {
+  // TODO: Remove this endpoint in production
+  if (process.env.NODE_ENV === "development") {
+    req.session.userId = "dev-user";
+    return res.json({ message: "Development login successful" });
+  }
+  res.status(404).json({ error: "Not found" });
+});
 
 // CREATE a new cat
 router.post("/", isAuthenticated, async (req: Request, res: Response) => {
